@@ -1,0 +1,236 @@
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb details2" class="main-breadcrumb">
+            <ol class="breadcrumb details2">
+                <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                <li class="breadcrumb-item"> <a (click)="backroute()" class="link" style="text-decoration: underline;color: blue;cursor: pointer;">Dashboard</a></li>
+                <li class=" breadcrumb-item active " aria-current="page ">Profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm ">
+            <div class="col-md-4 mb-3 ">
+                <div class="card ">
+                    <div class="card-body ">
+                        <div class="d-flex flex-column align-items-center text-center ">
+                            <img src="../../assets/images/hospitalimg.png " alt="Admin " class="rounded-circle " width="150 ">
+                            <div class="mt-3 ">
+                                <h3 [@expand] class="black ">Hospital Profile</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-sm-12 col-xl-12 col-lg-12 col-md-12 ">
+                        <div class="d-flex justify-content-center ">
+                            <img class="social-svg " src="../../assets/images/h-profile.svg ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card mb-3 details" [hidden]="!hospital.hospitalName">
+                    <div class="card-body ">
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Hospital Name</h4>
+                            </div>
+                            <div class="col-6 col-sm-9 text-secondary text ">
+                                {{hospital.hospitalName}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row em">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Email</h4>
+                            </div>
+                            <div class="col-6 col-sm-9 text-secondary text email">
+                                <a href="mailto:{{hospital.emailId}}" style="text-decoration: none;color: rgb(138, 253, 247);">{{hospital.emailId}}</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Contact No.</h4>
+                            </div>
+                            <div class="col-6 col-sm-9 text-secondary text ">
+                                <a href="tel:+91{{hospital.contact}}" style="text-decoration: none;color: rgb(138, 253, 247);">  {{hospital.contact}}</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>State</h4>
+                            </div>
+                            <div class="col-6 col-sm-9 text-secondary text ">
+                                {{hospital.state}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>City</h4>
+                            </div>
+                            <div class="col-6 col-sm-9 text-secondary text ">
+                                {{hospital.city}}
+                            </div>
+                        </div>
+                        <hr>
+                        <h2>Services:</h2>
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>ICU Beds</h4>
+                            </div>
+                            <div class="col-6 col-sm-3 text-secondary text ">
+                                {{hospital.icuBeds}}
+                            </div>
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Isolation Beds</h4>
+                            </div>
+                            <div class="col-6 col-sm-3 text-secondary text ">
+                                {{hospital.isolationBeds}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Covishield</h4>
+                            </div>
+                            <div class="col-6 col-sm-3 text-secondary text ">
+                                {{hospital.vaccine1}}
+                            </div>
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Covaxin</h4>
+                            </div>
+                            <div class="col-6 col-sm-3 text-secondary text ">
+                                {{hospital.vaccine2}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row ">
+                            <div class="col-6 col-sm-3 ">
+                                <h4 class="mb-0 " [@expand]>Oxygen Cylinders</h4>
+                            </div>
+                            <div class="col-6 col-sm-3 text-secondary text ">
+                                {{hospital.oxygenCylinders}}
+                            </div>
+
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div [hidden]="hospital.hospitalName">
+                        <mat-spinner [diameter]="80" class="stats_spinner" mode="indeterminate"></mat-spinner>
+                        <br>
+                        <mat-label>Loading...</mat-label>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6 col-md-6 d-flex justify-content-center ">
+                        <button class="badge badge-info changepass" (click)="changePassword(hospital.emailId)">Change Password</button>
+                    </div>
+                    <div class="col-6 col-md-6 d-flex justify-content-center ">
+                        <button class="badge badge-danger changepass" (click)="DeleteProfile()">Delete Profile</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row d-flex justify-content-center">
+                    <div [@expand] class="col-10 col-md-6 col-lg-6 card" *ngIf="cpass">
+                        <form [formGroup]="ChangePassForm">
+                            <mat-form-field>
+                                <span class="input-group-append" (click)="toggleFieldTextType()" style="float: right;position: absolute;margin-left: 95%;cursor: pointer;">
+                                    <mat-icon *ngIf="fieldTextType">visibility</mat-icon>
+                                    <mat-icon *ngIf="!fieldTextType">visibility_off</mat-icon>
+                                 </span>
+                                <input matInput [type]="fieldTextType ? 'text' : 'password'" placeholder="Current Password" formControlName="currentPassword">
+                                <mat-error *ngIf="currentPassword?.invalid && currentPassword?.touched">
+                                    Please enter Password in correct format
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <span class="input-group-append" (click)="toggleFieldTextType2()" style="float: right;position: absolute;margin-left: 95%;cursor: pointer;">
+                                    <mat-icon *ngIf="fieldTextType2">visibility</mat-icon>
+                                    <mat-icon *ngIf="!fieldTextType2">visibility_off</mat-icon>
+                                 </span>
+                                <input matInput [type]="fieldTextType2 ? 'text' : 'password'" placeholder="New Password" formControlName="newPassword">
+                                <mat-hint align="end">Must have atleast one uppercase letter, one number and atleast 8 characters long</mat-hint>
+                                <mat-error *ngIf="newPassword?.invalid && newPassword?.touched">
+                                    Please enter Password in correct format
+                                </mat-error>
+                            </mat-form-field>
+                            <br>
+
+                            <mat-form-field>
+                                <span class="input-group-append" (click)="toggleFieldTextType3()" style="float: right;position: absolute;margin-left: 95%;cursor: pointer;">
+                                    <mat-icon *ngIf="fieldTextType3">visibility</mat-icon>
+                                    <mat-icon *ngIf="!fieldTextType3">visibility_off</mat-icon>
+                                 </span>
+                                <input matInput [type]="fieldTextType3 ? 'text' : 'password'" placeholder="Confirm Password" formControlName="confirmNewPassword">
+
+                                <mat-error *ngIf="confirmNewPassword?.invalid && confirmNewPassword?.touched">
+                                    Please enter Password in correct format
+                                </mat-error>
+                                <mat-error *ngIf="confirmNewPassword?.errors?.confirmedValidator">
+                                    Passwords does not match
+                                </mat-error>
+                            </mat-form-field>
+
+
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <button mat-raised-button type="submit" style="margin-left: 2%;" (click)="submit()" [disabled]="ChangePassForm.invalid" color="primary">Submit</button>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                    <div [@expand] class="col-10 col-md-6 col-lg-6 card" *ngIf="dpass">
+                        <form [formGroup]="DeleteForm">
+
+                            <mat-form-field>
+                                <span class="input-group-append" (click)="toggleFieldTextType4()" style="float: right;position: absolute;margin-left: 95%;cursor: pointer;">
+                                    <mat-icon *ngIf="fieldTextType4">visibility</mat-icon>
+                                    <mat-icon *ngIf="!fieldTextType4">visibility_off</mat-icon>
+                                 </span>
+                                <input matInput [type]="fieldTextType4 ? 'text' : 'password'" placeholder="Password" formControlName="pass">
+                                <mat-error *ngIf="pass?.invalid && pass?.touched">
+                                    Please enter Password in correct format
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <span class="input-group-append" (click)="toggleFieldTextType5()" style="float: right;position: absolute;margin-left: 95%;cursor: pointer;">
+                                    <mat-icon *ngIf="fieldTextType5">visibility</mat-icon>
+                                    <mat-icon *ngIf="!fieldTextType5">visibility_off</mat-icon>
+                                 </span>
+                                <input matInput [type]="fieldTextType5 ? 'text' : 'password'" placeholder="Confirm Password" formControlName="conPass">
+                                <mat-error *ngIf="conPass?.invalid && conPass?.touched">
+                                    Please enter Password in correct format
+                                </mat-error>
+                                <mat-error *ngIf="conPass?.errors?.confirmedValidator">
+                                    Passwords does not match
+                                </mat-error>
+                            </mat-form-field>
+                            <small class="form-text text-muted">*Account will be permanently deleted.</small>
+                            <mat-checkbox formControlName="agree" color="primary">Are you sure, you want to delete?</mat-checkbox>
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <button mat-raised-button type="submit" style="margin-left: 2%;" (click)="submitDelete()" [disabled]="DeleteForm.invalid" color="primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

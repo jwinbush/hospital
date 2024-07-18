@@ -1,0 +1,32 @@
+<div class="container {{light}}">
+    <nav class="d-flex justify-content-between align-items-center navbar-expand-lg {{navbarcolour}} bg-light">
+        <a class="navbar-brand grow" routerLink="/home"><img src='../../../assets/images/{{light === "light" ? "nav-logo" : "nav-logo-dark"}}.png' height="45px" width="90px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <!-- <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="itemActive">Home</a> -->
+                <!-- <a class="nav-link" href="home#w" routerLinkActive="itemActive">About Us</a> -->
+                <li><a class="nav-link" role="button" (click)="navToElement('w')">About Us</a></li>
+                <li><a class="nav-link" routerLink="/hospital-login" routerLinkActive="itemActive">Hospital Login</a>
+                </li>
+
+                <!-- <a class="nav-link" routerLink="/hospital-dashboard" routerLinkActive="itemActive">H-Dashboard</a> -->
+                <li> <a class="nav-link" routerLink="/patient-login" routerLinkActive="itemActive">Patient Login</a>
+                </li>
+                <!-- <a class="nav-link" routerLink="/patient-signup" routerLinkActive="itemActive">P-Signup</a> -->
+                <!-- <a class="nav-link" routerLink="/patient-dashboard" routerLinkActive="itemActive">P-Dashboard</a> -->
+                <!-- <a class="nav-link" routerLink="/self-analysis" routerLinkActive="itemActive">Self Analysis</a> -->
+                <li><a class="nav-link" routerLink="/resources" routerLinkActive="itemActive">Resources</a></li>
+                <!-- <a class="nav-link" routerLink="/our-products" routerLinkActive="itemActive">Our Products</a> -->
+                <!-- <a class="nav-link" routerLink="/error-page" routerLinkActive="itemActive">Error</a> -->
+            </ul>
+        </div>
+        <a (click)="navToElement('r')" class="a-link ">
+            <button class="know-button ">
+                Get A Quote
+            </button>
+        </a>
+    </nav>
+</div>
