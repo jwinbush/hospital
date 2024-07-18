@@ -1,31 +1,6 @@
 <h1 align="center"><b> hospital </b></h1> 
 <p> A compassionate effort to aid people out of difficult times, we are resolutely committed to provide our users with hospitals and their services at their fingertips.</p>
 
-Link - <a href="https://hospital.netlify.app/home"> https://hospital.netlify.app/home</a>
-<br>
-<p align="center">
-<img src="https://github.com/pranjay-poddar/hospital/blob/pranjay/src/assets/images/hospital_gif.gif" width="700" title="hospital Poster">
-</p >
-<div  align="center">
-  
-[![Build Status](https://img.shields.io/circleci/project/all-contributors/all-contributors/master.svg)](https://circleci.com/gh/all-contributors/workflows/all-contributors/tree/master)
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/all-contributors/localized.svg)](https://crowdin.com/project/all-contributors)
-[![Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/e30784c5-9efd-4f20-8a47-13f3fb899613/deploy-status)](https://app.netlify.com/sites/allcontributors-org/deploys) -->
-![GitHub repo size](https://img.shields.io/github/repo-size/pranjay-poddar/hospital?color=yellow)
-  
-</div>
-
-## About Us 
-
-This pandemic has literally brought everyone on their knees, the despair and despondency that shrouded the country during covid gave us the motive to calibrate technology and help people out of these unprecedented times. Team hospital tries to provide its users with a service-based distinction of our partner hospitals from all across the country. What really keeps us going is a belief that one day we will make the notion of "hospitals at your fingertips" true.
-
-## Problem Statement
-hospital aims at mitigating the hardships people faced during this pandemic. We provide an interactive user interface where a user can directly interact with respective hospitals that are self-registered on our application. Users will get to access a spate of services that these hospitals provide. Hospitals can easily update the availability of these services by logging in to their dashboard. The services range from ICU beds availability to the number of vaccines that the hospitals have. Users can easily browse for these services in different cities and hospitals and then book them from the hospital of their choice. This application will also provide its users a prescription section where all the previous prescriptions of the users will be available for future reference.
-
-
-## Features
-
 #### Hospitals
 -   Hospital Registration
 -   Hospital Login
@@ -58,10 +33,6 @@ hospital aims at mitigating the hardships people faced during this pandemic. We 
 
 -   Hosting Service Provider : Netlify
 
-<p align="center">
-<img src="https://github.com/pranjay-poddar/hospital/blob/main/Presentation%20Images/hospital%20Architecture%20Diagram.png" width="700" title="hospital Poster">
-</p >
-
 
 ## How is our solution different
 
@@ -75,14 +46,6 @@ hospital aims at mitigating the hardships people faced during this pandemic. We 
 -   Providing users the option to book a variety of services that the hospitals offer.
 -   A prescription catalogue, from where a user can keep track of all his past prescriptions.
 -   A doctor's clinic where a user can consult any registered doctor from across the country.
-
-## Sample Login ID and Password
-
-Log On to - [https://hospital.netlify.app/hospital-login](https://hospital.netlify.app/hospital-login)
-
-
-## Backend (Spring Boot and MySql)
-[Repository-https://github.com/pranjay-poddar/hospital-Backend](https://github.com/pranjay-poddar/hospital-Backend)
 
 ## Installation
 - npm install
@@ -113,7 +76,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ```
 ## Plugins
 
-hospital is currently extended with the following plugins.
+Hospital is currently extended with the following plugins.
 Instructions on how to use them in your own application are linked below.
 
 | Plugin | Commands |
@@ -131,28 +94,3 @@ For production release:
 npm run build --prod
 
 ```
-
-## How To Contribute
-1.  Fork it ([https://github.com/pranjay-poddar/hospital](https://github.com/pranjay-poddar/hospital))
-2.  Create your feature branch (`git checkout -b feature/xyz`)
-3.  Commit your changes (`git commit -am 'Add some xyz'`)
-4.  Push to the branch (`git push origin feature/xyz`)
-5.  Create a new Pull Request
-
-## Contributors
-<table>
-  <tr>
-    <td align="center"><a href="https://pranjay.tech/"><img src="https://github.com/pranjay-poddar/hospital/blob/pranjay/src/assets/images/contributors/Pranjay-Poddar.jpg" width="250px;" alt=""/><br /><sub><b>Pranjay Poddar</b></sub></a><br /> <br /><a href="https://www.linkedin.com/in/pranjay-poddar/" alt="Linkedin"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/linkedin-fill.svg"></a> <a href="mailto:pp7769@srmist.edu.in" alt="Contact me"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/mail-fill.svg"></a>  <a href="https://github.com/pranjay-poddar" alt="My site"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/external-link-line.svg"></a></td>
-    <td align="center"><a href="https://github.com/shreyanshp25"><img src="https://github.com/pranjay-poddar/hospital/blob/pranjay/src/assets/images/contributors/Shreyansh-Pathak.jpg" width="250px;" alt=""/><br /><sub><b>Shreyansh Pathak</b></sub></a><br /> <br /><a href="https://twitter.com/IamShreyansh25" alt="Linkedin"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/twitter-fill.svg"></a> <a href="mailto:sp4733@srmist.edu.in" alt="Contact me"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/mail-fill.svg"></a>  <a href="https://github.com/shreyanshp25" alt="My site"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/external-link-line.svg"></a></td>
-    <td align="center"><a href="https://github.com/NishantSingh-2705"><img src="https://github.com/pranjay-poddar/hospital/blob/pranjay/src/assets/images/contributors/Nishant-Singh.jpg" width="250px;" alt=""/><br /><sub><b>Nishant Singh</b></sub></a><br /><br /> <a href="https://twitter.com/Nishant27460243" alt="Linkedin"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/twitter-fill.svg"></a> <a href="mailto:ns7004@srmist.edu.in" alt="Contact me"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/mail-fill.svg"></a>  <a href="https://github.com/NishantSingh-2705" alt="My site"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/external-link-line.svg"></a></td>
-    <td align="center"><a href="https://github.com/Subho0710"><img src="https://github.com/pranjay-poddar/hospital/blob/pranjay/src/assets/images/contributors/Subhojeet-Bhattacharjee.jpg" width="250px;" alt=""/><br /><sub><b>Subhojeet Bhattacharjee</b></sub></a><br /><br /> <a href="https://twitter.com/Subhoje53508662"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/twitter-fill.svg"></a> <a href="mailto:sb4194@srmist.edu.in" alt="Contact me"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/mail-fill.svg"></a>  <a href="https://github.com/Subho0710" alt="My site"><img src="https://raw.githubusercontent.com/jayehernandez/jayehernandez/3f5402efef9a0ae89211a6e04609558e862ca616/readme/external-link-line.svg"></a></td>    
-  </tr>
-</table>
-
-
-
-## License
-
-Apache License
-© Team hospital-2021
-
