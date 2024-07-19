@@ -1,31 +1,55 @@
-$blue: #7DA0FA;
+$blue: #0d2851;
 $purple: #4747A1;
 $lpurple: #7978E9;
 $pink: #F3797E;
 .container {
-    background-color: #ffffff00 !important;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
-    padding-left: 6vw;
-    padding-right: 6vw;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.scrolled {
+    background-color: white;
 }
 
 a:hover {
     border-radius: 4px !important;
-    transition: 0.1s ease !important;
+    transition: 0.5s ease !important;
 }
 
 .navbar {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin: 0 auto;
+    max-width: 86vw;
+    box-shadow: 0 -1px #0d285171 inset;
     position: relative;
-    z-index: 2;
+    z-index: 100;
     .navbar-brand-dark {
         display: none;
     }
     &-nav {
         column-gap: 50px;
         align-items: center;
+        li a {
+            font-weight: 300;
+        }
+    }
+    &-logo {
+        max-height: 7vh;
+        p {
+            font-size: 12px;
+            font-weight: 300;
+            span {
+                font-size: 26px;
+                font-weight: 600;
+            }
+        }
     }
 }
 
@@ -40,31 +64,56 @@ a:hover {
 }
 
 .nav-link {
-    color: black !important;
+    color: $blue !important;
     font-weight: 500;
     font-size: 118%;
-    margin-left: 5px;
     justify-content: center;
     text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    padding: 2px 0;
+    text-decoration: none;
+    /* Adjust color as needed */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.8px;
+    /* Adjust height as needed */
+    width: 0;
+    background-color: #000;
+    /* Adjust color as needed */
+    transition: width 0.5s ease;
 }
 
 .know-button {
-    width: 140px;
+    font-size: 15px;
     border: 0;
-    padding: 12px 10px;
+    padding: 10px 20px;
     outline: none;
-    color: #fff;
-    background: linear-gradient(to right, #fb5283, #ff3527);
+    color: $blue;
+    background: transparent;
+    border: 1px solid $blue;
     border-radius: 6px;
     cursor: pointer;
-    transition: width 0.5s;
+    transition: ease-in-out 0.3s;
+    &:hover {
+        background: $blue;
+        color: #fff;
+        transition: ease-in-out 0.3s;
+        transform: scale(0.95);
+    }
 }
 
 
 /* Added Hover Effect on Navigation links */
 
-.nav-link:hover {
-    color: #828282 !important;
+.nav-link:hover::after {
+    width: 100%;
 }
 
 button.navbar-toggler {

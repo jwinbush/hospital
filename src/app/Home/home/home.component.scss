@@ -1,3 +1,7 @@
+$blue: #0d2851;
+$purple: #4747A1;
+$lpurple: #7978E9;
+$pink: #F3797E;
 .dark-mode-toggle {
     //height: 30px;
     position: absolute;
@@ -37,6 +41,7 @@
 }
 
 .home {
+    overflow: hidden;
     padding: 0vh 0vw;
     .hero {
         height: 110vh;
@@ -56,12 +61,13 @@
                 text-align: left;
                 h2 {
                     font-size: 80px;
-                    line-height: 70px;
+                    line-height: 78px;
+                    font-weight: 400;
                 }
                 p {
                     font-size: 20px;
-                    line-height: 22px;
-                    font-weight: 400;
+                    line-height: 30px;
+                    font-weight: 300;
                 }
             }
             .right-side {
@@ -87,6 +93,21 @@
             }
         }
     }
+    .services {
+        height: 100vh;
+        max-width: 86vw;
+        margin: 0 auto;
+        &-cards {
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(3, 28vw);
+            align-items: center;
+            gap: 1vw;
+            .card .box {
+                height: 40vh;
+            }
+        }
+    }
 }
 
 .rows {
@@ -103,31 +124,25 @@
 }
 
 .know-button {
-    width: 140px;
+    font-size: 15px;
     border: 0;
-    padding: 12px 10px;
+    padding: 10px 20px;
     outline: none;
     color: #fff;
-    background: linear-gradient(to right, #fb5283, #ff3527);
+    background: $blue;
+    border: 1px solid $blue;
     border-radius: 6px;
     cursor: pointer;
-    transition: width 0.5s;
+    transition: ease-in-out 0.3s;
+    &:hover {
+        transition: ease-in-out 0.3s;
+        transform: scale(0.95);
+    }
 }
 
 .button-image {
     width: 0px;
     transition: width 0.25s;
-}
-
-.know-button:hover .button-image {
-    width: 30px;
-}
-
-.know-button:hover {
-    width: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 // ------------------toggle dark mode switch end -----------------------------------------------------
@@ -207,7 +222,6 @@
     border: none;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05) inset -5px -5px 5px rgba(255, 255, 255, 0.5) inset 5px 5px 5px rgba(0, 0, 0, 0.05) inset -5px -5px 5px rgba(255, 255, 255, 0.5);
     border-radius: 15px;
-    margin: 30px;
 }
 
 .card .box {

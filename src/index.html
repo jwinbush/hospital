@@ -79,6 +79,19 @@
                 }
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('container');
+            const changePoint = window.innerHeight * 0.1;
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > changePoint) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
     </script>
 
 </body>
