@@ -13,8 +13,41 @@ $pink: #F3797E;
     padding: 0;
 }
 
-.scrolled {
+
+/* Navbar style when scrolled past the first change point */
+
+#container.scrolled {
     background-color: white;
+}
+
+#container.scrolled-blue .navbar {
+    box-shadow: 0 -1px #ffffff71 inset;
+}
+
+.nav-link,
+.navbar-logo-text {
+    transition: color 0.5s ease;
+}
+
+.nav-link.white,
+.navbar-logo-text.white {
+    color: white;
+}
+
+.nav-link.blue,
+.navbar-logo-text.blue {
+    color: $blue;
+    /* Assuming $blue is a CSS variable or you can replace it with the actual color value */
+}
+
+
+/* Change color when scrolled past a certain point */
+
+
+/* Change color when in .use-cases-wrapper */
+
+#container.scrolled-blue {
+    background-color: $blue;
 }
 
 a:hover {
@@ -23,11 +56,11 @@ a:hover {
 }
 
 .navbar {
+    box-shadow: 0 -1px #0d285171 inset;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
     margin: 0 auto;
     max-width: 86vw;
-    box-shadow: 0 -1px #0d285171 inset;
     position: relative;
     z-index: 100;
     .navbar-brand-dark {
@@ -64,7 +97,6 @@ a:hover {
 }
 
 .nav-link {
-    color: $blue !important;
     font-weight: 500;
     font-size: 118%;
     justify-content: center;
@@ -90,7 +122,7 @@ a:hover {
     transition: width 0.5s ease;
 }
 
-.know-button {
+.nav-button {
     font-size: 15px;
     border: 0;
     padding: 10px 20px;

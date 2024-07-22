@@ -104,6 +104,10 @@ html,
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, and Opera */
+    }
 }
 
 .dark {

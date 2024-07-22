@@ -81,9 +81,14 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+
             const navbar = document.getElementById('container');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbarLogoText = document.querySelector('.navbar-logo-text');
             const changePoint = window.innerHeight * 0.1;
 
+            // Change to white when scrolled past a certain point
             window.addEventListener('scroll', function() {
                 if (window.scrollY > changePoint) {
                     navbar.classList.add('scrolled');
@@ -91,7 +96,124 @@
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // Helper function to add/remove classes
+            function setNavbarElementsColor(colorClass) {
+                navLinks.forEach(link => {
+                    link.classList.remove('white', 'blue');
+                    link.classList.add(colorClass);
+                });
+                navbarLogoText.classList.remove('white', 'blue');
+                navbarLogoText.classList.add(colorClass);
+            }
+
+            // Change to blue when scrolling into .use-cases-wrapper
+            ScrollTrigger.create({
+                trigger: ".use-cases-wrapper",
+                start: "top top",
+                end: "bottom top",
+                onEnter: () => {
+                    navbar.classList.add('scrolled-blue');
+                    setNavbarElementsColor('white');
+                },
+                onLeave: () => {
+                    navbar.classList.remove('scrolled-blue');
+                    setNavbarElementsColor('blue');
+                },
+                onEnterBack: () => {
+                    navbar.classList.add('scrolled-blue');
+                    setNavbarElementsColor('white');
+                },
+                onLeaveBack: () => {
+                    navbar.classList.remove('scrolled-blue');
+                    setNavbarElementsColor('blue');
+                },
+                markers: true // For debugging purposes, remove in production
+            });
+
+            // Change back to white when scrolling into .why-us-wrapper
+            ScrollTrigger.create({
+                trigger: ".why-us-wrapper",
+                start: "center center",
+                end: "bottom bottom",
+                onEnter: () => {
+                    navbar.classList.remove('scrolled-blue');
+                    setNavbarElementsColor('blue');
+                },
+                onLeaveBack: () => {
+                    navbar.classList.add('scrolled-blue');
+                    setNavbarElementsColor('white');
+                },
+                markers: true // For debugging purposes, remove in production
+            });
         });
+
+
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     gsap.registerPlugin(ScrollTrigger);
+
+        //     const useCasesScrollRight = document.querySelector('.use-cases-scroll-right');
+        //     const useCasesWrapper = document.querySelector('.use-cases-wrapper');
+
+        //     // Calculate the height difference
+        //     const heightDifference = useCasesScrollRight.scrollHeight - useCasesWrapper.clientHeight;
+
+        //     // ScrollTrigger to control the scrolling of use-cases-scroll-right
+        //     ScrollTrigger.create({
+        //         trigger: useCasesWrapper,
+        //         start: "top top",
+        //         end: () => `+=${heightDifference}`,
+        //         scrub: true,
+        //         onUpdate: (self) => {
+        //             useCasesScrollRight.scrollTop = heightDifference * self.progress;
+        //         },
+        //         markers: true // For debugging purposes, remove in production
+        //     });
+
+        //     // Fixing elements during the scroll of use-cases-wrapper
+        //     const elementsToFix = [".block-name-case", ".use-cases-scroll-left", ".use-cases-cta"];
+
+        //     elementsToFix.forEach(selector => {
+        //         gsap.to(selector, {
+        //             scrollTrigger: {
+        //                 trigger: useCasesWrapper,
+        //                 start: "top top",
+        //                 end: () => `+=${heightDifference}`,
+        //                 pin: true,
+        //                 pinSpacing: false,
+        //                 markers: true // For debugging purposes, remove in production
+        //             }
+        //         });
+        //     });
+
+        //     // Additional GSAP animation for .use-cases-scroll-right if needed
+        //     gsap.to(".use-cases-scroll-right", {
+        //         opacity: 1,
+        //         y: 100,
+        //         scrollTrigger: {
+        //             trigger: useCasesWrapper,
+        //             start: "top top",
+        //             end: () => `+=${heightDifference}`,
+        //             scrub: true,
+        //             markers: true // For debugging purposes, remove in production
+        //         }
+        //     });
+        // });
+
+        // //Why Us Section
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     gsap.registerPlugin(ScrollTrigger);
+
+        //     gsap.to('.why-us-video video', {
+        //         scale: 1,
+        //         scrollTrigger: {
+        //             trigger: '.why-us-wrapper',
+        //             start: 'top top',
+        //             end: 'center top',
+        //             scrub: true
+        //         }
+        //     });
+        // });
     </script>
 
 </body>
