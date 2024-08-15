@@ -60,7 +60,7 @@ $pink: #F3797E;
                 h2 {
                     font-size: 80px;
                     line-height: 78px;
-                    font-weight: 400;
+                    font-weight: 300;
                 }
                 p {
                     font-size: 20px;
@@ -82,6 +82,7 @@ $pink: #F3797E;
             overflow: hidden;
             border-radius: 0 0 10px 10px;
             video {
+                filter: brightness(1.15);
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -146,17 +147,22 @@ $pink: #F3797E;
         }
     }
     .use-cases-wrapper {
-        background-image: url('../../../assets/images/beautiful-abstract-wave-line-dot-technology-background-png.webp');
-        background-blend-mode: lighten;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center bottom;
         overflow: hidden;
         padding-top: 13vh;
         padding-bottom: 13vh;
         height: 100vh;
         background-color: $blue;
         color: white;
+        .wave img {
+            position: absolute;
+            width: 70%;
+            z-index: 0;
+            top: 40%;
+            right: 50%;
+            mix-blend-mode: luminosity;
+            transform: translate(50%, -50%);
+            opacity: 40%;
+        }
         .use-cases {
             overflow: hidden;
             position: relative;
@@ -166,6 +172,7 @@ $pink: #F3797E;
             justify-content: space-between;
             gap: 0;
             .block-name-case {
+                z-index: 1;
                 position: relative;
                 overflow-y: hidden;
                 height: 100%;
@@ -176,6 +183,7 @@ $pink: #F3797E;
                 }
             }
             .use-cases-scroll-left {
+                z-index: 1;
                 position: relative;
                 width: 37vw;
                 flex-direction: column;
@@ -201,7 +209,6 @@ $pink: #F3797E;
                     flex-direction: column;
                     align-items: flex-start;
                     margin-top: 48px;
-                    font-family: Figtree, sans-serif;
                     font-size: 18px;
                     font-weight: 300;
                     line-height: 140%;
@@ -221,6 +228,7 @@ $pink: #F3797E;
                 }
             }
             .use-cases-scroll-right {
+                z-index: 1;
                 width: 37vw;
                 display: flex;
                 justify-content: flex-start;
@@ -259,6 +267,7 @@ $pink: #F3797E;
                 }
             }
             .use-cases-cta {
+                z-index: 1;
                 position: sticky;
                 overflow-y: hidden;
                 text-align: end;
@@ -293,6 +302,7 @@ $pink: #F3797E;
         width: 100vw;
         .why-us-content {
             h1 {
+                font-family: 'FigtreeMedium', sans-serif!important;
                 color: #fff;
                 position: relative;
                 z-index: 2;
@@ -318,22 +328,172 @@ $pink: #F3797E;
             }
         }
     }
-    .services {
+    .services-wrapper {
+        background-image: url('https://images.pexels.com/photos/950241/pexels-photo-950241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 13vh;
+        padding-bottom: 13vh;
         height: 100vh;
+        grid-template-columns: repeat(3, 28vw);
         width: 100vw;
         margin: 0 auto;
-        background-image: url('../../../assets/images/services.webp');
-        background-repeat: no-repeat;
-        background-size: cover;
-        &-cards {
-            justify-content: center;
-            width: 100vw;
+        overflow: hidden;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 400vh;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Ensure the overlay does not interfere with clicks */
+            z-index: 1;
+            /* Ensure the overlay is on top of the background image */
+        }
+        .services-cards {
+            flex-direction: column;
             display: grid;
-            grid-template-columns: repeat(3, 28vw);
-            align-content: center;
+            justify-content: center;
             gap: 1vw;
-            .card .box {
+            grid-template-columns: repeat(4, 20vw);
+            align-content: center;
+            .card {
+                display: flex;
+                z-index: 2;
+                backdrop-filter: blur(6px);
+                background-color: #ffffff4b;
+                border: 1px solid #fff;
                 height: 40vh;
+                align-items: center;
+                .content {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    row-gap: 20px;
+                    padding: 24px;
+                    h2 {
+                        font-size: 24px;
+                        font-weight: 400;
+                    }
+                    img {
+                        width: 100%;
+                        max-width: 5vw;
+                        max-height: 5vw;
+                    }
+                    p {
+                        font-weight: 300;
+                        font-size: 17px;
+                    }
+                    a {
+                        text-decoration: none;
+                        position: relative;
+                        font-size: 15px;
+                        border: 0;
+                        padding: 10px 10px;
+                        max-width: 7vw;
+                        text-align: center;
+                        outline: none;
+                        color: $blue;
+                        background: transparent;
+                        border: 1px solid $blue;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: ease-in-out 0.3s;
+                        &:hover {
+                            background: $blue;
+                            color: #fff;
+                            transition: ease-in-out 0.3s;
+                            transform: scale(0.95);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .launch-wrapper {
+        justify-content: flex-start;
+        display: flex;
+        height: 65vh;
+        width: 100vw;
+        padding-left: 7vw;
+        .launch-left {
+            padding-top: 13vh;
+            padding-bottom: 13vh;
+            height: 100%;
+            width: 13vw;
+            .launch-title p {
+                font-size: 17px;
+                font-weight: 300;
+            }
+        }
+        .launch-center {
+            padding-top: 13vh;
+            padding-bottom: 13vh;
+            padding-right: 5vw;
+            width: 38vw;
+            flex-direction: column;
+            justify-content: space-between;
+            display: flex;
+            z-index: 2;
+            color: $blue;
+            h2 {
+                font-size: 46px;
+                font-weight: 400;
+                line-height: 54px;
+                span {
+                    color: #03a9f4;
+                }
+            }
+            p {
+                font-size: 17px;
+                font-weight: 300;
+                line-height: 26px;
+            }
+        }
+        .launch-right {
+            padding: 4vh 5vw;
+            background-color: rgb(196, 228, 255);
+            width: 45vw;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-evenly;
+            display: flex;
+            .launch-slider {
+                .launch-slide {
+                    h2 {
+                        font-size: 46px;
+                        font-weight: 400;
+                        line-height: 54px;
+                        span {
+                            color: #03a9f4;
+                        }
+                    }
+                    p {
+                        font-size: 17px;
+                        font-weight: 300;
+                        line-height: 26px;
+                    }
+                }
+            }
+            .arrows {
+                display: flex;
+                z-index: 2;
+                gap: 0.5vw;
+                justify-content: start;
+                .left-arrow,
+                .right-arrow {
+                    padding: 0.7em 0.8em;
+                    background-color: $blue;
+                    border-radius: 8px;
+                    transition: background-color 0.3s ease; // Smooth transition for hover effect
+                    cursor: pointer;
+                    &:hover,
+                    &:active {
+                        background-color: $blue;
+                        opacity: 0.6; // Adjust the blue color to be semi-transparent
+                    }
+                }
             }
         }
     }
@@ -436,54 +596,6 @@ $pink: #F3797E;
         flex-basis: 100%;
         margin-bottom: 50px;
     }
-}
-
-.card {
-    border: solid 1px rgb(255, 255, 255);
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
-}
-
-.card .box {
-    background: rgba(255, 255, 255, 0);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-}
-
-.card .box .content {
-    padding: 20px;
-    text-align: center;
-}
-
-.card .box .content h2 {
-    font-size: 1.8em;
-    color: #777;
-    z-index: 1;
-    transition: 0.5s;
-}
-
-.card .box .content p {
-    font-size: 1.12em;
-    font-weight: 300;
-    color: #777;
-    z-index: 1;
-    transition: 0.5s;
-}
-
-.card .box .content a {
-    position: relative;
-    display: inline-block;
-    padding: 8px 20px;
-    background: #03a9f4;
-    margin-top: 15px;
-    border-radius: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 400;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .jumbo-margin {

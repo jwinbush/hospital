@@ -10,6 +10,18 @@ $pink: #f3797e;
     box-shadow: inset 0 0 4px #707070;
 }
 
+@font-face {
+    font-family: 'Figtree';
+    src: url('./assets/fonts/figtree/Figtree-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Figtree', sans-serif!important;
+    font-weight: 300;
+}
+
 .mat-progress-spinner circle,
 .mat-spinner circle {
     stroke: rgb(26, 26, 26) !important;
@@ -103,7 +115,7 @@ input:-webkit-autofill:active {
 html,
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Republic', sans-serif;
     &::-webkit-scrollbar {
         display: none;
         /* Chrome, Safari, and Opera */

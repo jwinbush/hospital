@@ -1,0 +1,123 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+::-webkit-scrollbar {
+  width: 10px;
+  overflow-y: scroll;
+  background: #f8f8f8;
+  box-shadow: inset 0 0 4px #707070;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("./assets/fonts/figtree/Figtree-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+* {
+  font-family: "Figtree", sans-serif !important;
+  font-weight: 300;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: rgb(26, 26, 26) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7da0fa;
+  border-radius: 100px;
+  height: 10px !important;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f6cb6;
+  border-radius: 100px;
+  height: 50px !important;
+  overflow: auto;
+}
+
+/* ANIMATION  */
+.grow2 {
+  transition: all 0.01s ease-in-out;
+}
+
+.grow2:hover {
+  transform: scale(1.03);
+}
+
+.grow {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.grow:hover {
+  transform: scale(1.1) !important;
+}
+
+.rotate {
+  transition: transform 0.5s ease-in-out;
+}
+
+.rotate:hover {
+  transform: rotate(360deg);
+}
+
+.object {
+  animation: MoveUpDown 3s linear infinite;
+  position: absolute;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+}
+.middle {
+  position: relative;
+}
+
+.middle:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.middle:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Republic", sans-serif;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, and Opera */
+}
+
+.dark .mat-form-field-label {
+  color: #fff !important;
+}
+.dark .mat-form-field-underline {
+  background-color: #fff !important;
+}/*# sourceMappingURL=styles.css.map */

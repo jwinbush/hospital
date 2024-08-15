@@ -109,6 +109,10 @@ a:hover {
     /* Adjust color as needed */
 }
 
+a.nav-link {
+    padding: 0!important;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;

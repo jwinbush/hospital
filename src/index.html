@@ -18,10 +18,10 @@
     <meta property="og:image" content="https://billboard.srmkzilla.net/api/blog?title=hospital&subtitle=Team%20hospital%20-%202021&theme=dark" />
     <script src="https://kit.fontawesome.com/acc31d65b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../src/styles.css"> -->
     <!-- <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Start of Async Drift Code -->
@@ -64,6 +64,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <!-- <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -128,7 +132,7 @@
                     navbar.classList.remove('scrolled-blue');
                     setNavbarElementsColor('blue');
                 },
-                markers: true // For debugging purposes, remove in production
+                markers: false // For debugging purposes, remove in production
             });
 
             // Change back to white when scrolling into .why-us-wrapper
@@ -144,7 +148,7 @@
                     navbar.classList.add('scrolled-blue');
                     setNavbarElementsColor('white');
                 },
-                markers: true // For debugging purposes, remove in production
+                markers: false // For debugging purposes, remove in production
             });
         });
 
@@ -214,6 +218,26 @@
         //         }
         //     });
         // });
+
+
+
+        $(document).ready(function() {
+            $('.launch-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false, // Disable default arrows
+                infinite: true,
+            });
+
+            // Custom arrow controls
+            $('.left-arrow').click(function() {
+                $('.launch-slider').slick('slickPrev');
+            });
+
+            $('.right-arrow').click(function() {
+                $('.launch-slider').slick('slickNext');
+            });
+        });
     </script>
 
 </body>

@@ -11,7 +11,7 @@
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "scss"
+                    "style": "css"
                 },
                 "@schematics/angular:application": {
                     "strict": true
@@ -29,7 +29,7 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
-                        "inlineStyleLanguage": "scss",
+                        "inlineStyleLanguage": "css",
                         "assets": [
                             "src/_redirects",
                             "src/favicon.ico",
@@ -37,7 +37,7 @@
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.scss"
+                            "src/styles.css"
                         ],
                         "scripts": []
                     },
@@ -96,14 +96,14 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
-                        "inlineStyleLanguage": "scss",
+                        "inlineStyleLanguage": "css",
                         "assets": [
                             "src/favicon.ico",
                             "src/assets"
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.scss"
+                            "src/styles.css"
                         ],
                         "scripts": []
                     }
