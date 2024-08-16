@@ -69,6 +69,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             gsap.registerPlugin(ScrollTrigger);
@@ -151,6 +153,42 @@
                 markers: false // For debugging purposes, remove in production
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from(".approach-wrapper-right img", {
+                x: 100, // Start 100 pixels to the right
+                opacity: 0, // Start with opacity 0
+                duration: 1.5, // Animation duration of 1.5 seconds
+                ease: "power3.out", // Easing function for smooth animation
+                scrollTrigger: {
+                    trigger: ".approach-wrapper-right",
+                    start: "top 80%", // When the top of the element is 80% from the top of the viewport
+                    toggleActions: "play none none none" // Play the animation when in view
+                }
+            });
+        });
+
+        let audioContext;
+
+        function initializeAudio() {
+            // Create the AudioContext only if it doesn't already exist
+            if (!audioContext) {
+                audioContext = new(window.AudioContext || window.webkitAudioContext)();
+            }
+            // Resume the AudioContext if it's suspended
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+        }
+
+        // Add event listener for a user gesture, such as a click
+        document.addEventListener('click', function() {
+            initializeAudio();
+        });
+
+
 
 
         // document.addEventListener("DOMContentLoaded", function() {
@@ -236,6 +274,21 @@
 
             $('.right-arrow').click(function() {
                 $('.launch-slider').slick('slickNext');
+            });
+        });
+
+        $(document).ready(function() {
+            $(".accordion-header").click(function() {
+                var content = $(this).next(".accordion-content");
+
+                // Toggle the accordion item
+                if (content.is(":visible")) {
+                    content.slideUp(300);
+                } else {
+                    // Close other open accordion items
+                    $(".accordion-content").slideUp(300);
+                    content.slideDown(300);
+                }
             });
         });
     </script>

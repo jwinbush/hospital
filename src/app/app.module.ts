@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './Utilities/navbar/navbar.component';
 import { FooterComponent } from './Utilities/footer/footer.component';
 import { HomeComponent } from './Home/home/home.component';
+import { AboutComponent } from './About/about.component';
+import { FaqComponent } from './Faq/faq.component';
 import { SignupPatientComponent } from './Patients/signup-patient/signup-patient.component';
 import { LoginPatientComponent } from './Patients/login-patient/login-patient.component';
 import { DashboardPatientComponent } from './Patients/dashboard-patient/dashboard-patient.component';
@@ -50,6 +52,8 @@ import { ErrorPageComponent } from './Utilities/error-page/error-page.component'
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    AboutComponent,
+    FaqComponent,
     SignupPatientComponent,
     LoginPatientComponent,
     DashboardPatientComponent,

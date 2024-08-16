@@ -1,7 +1,7 @@
 <div class="container {{light}}" id="container">
     <nav class="navbar d-flex justify-content-between align-items-center navbar-expand-lg {{navbarcolour}} bg-light">
         <div class="navbar-logo d-flex align-items-center">
-            <a class="navbar-brand grow" routerLink="/home"><img src='../../../assets/images/{{light === "light" ? "serenity" : "nav-logo-dark"}}.png' width="50px"></a>
+            <a class="navbar-brand grow" href="/home"><img src='../../../assets/images/serenity.png' width="50px"></a>
             <p class="navbar-logo-text pt-4"><span>Serenity</span><br>Care Services</p>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,12 +9,10 @@
         </button>
         <div id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <!-- <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="itemActive">Home</a> -->
-                <li><a class="nav-link" role="button" (click)="navToElement('w')">About Us</a></li>
-                <li> <a class="nav-link" routerLink="/services" routerLinkActive="itemActive">Services</a></li>
-                <li> <a class="nav-link" routerLink="/careers" routerLinkActive="itemActive">Careers</a></li>
-                <li><a class="nav-link" routerLink="/faq" routerLinkActive="itemActive">FAQ</a></li>
-
+                <li><a class="nav-link" href="/about">About Us</a></li>
+                <li><a class="nav-link" href="/services">Services</a></li>
+                <li><a class="nav-link" href="/careers">Careers</a></li>
+                <li><a class="nav-link" href="/faq">FAQ</a></li>
             </ul>
         </div>
         <a (click)="navToElement('r')" class="a-link ">
