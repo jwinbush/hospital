@@ -469,7 +469,7 @@
   display: flex;
   z-index: 2;
   gap: 0.5vw;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .about .launch-wrapper .launch-right .arrows .left-arrow,
 .about .launch-wrapper .launch-right .arrows .right-arrow {

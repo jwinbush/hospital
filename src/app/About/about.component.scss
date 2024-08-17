@@ -476,7 +476,7 @@ $pink: #F3797E;
                 display: flex;
                 z-index: 2;
                 gap: 0.5vw;
-                justify-content: start;
+                justify-content: flex-start;
                 .left-arrow,
                 .right-arrow {
                     padding: 0.7em 0.8em;

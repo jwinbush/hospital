@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Option {\n  constructor(data) {\n    data = data || {};\n    this.id = data.id;\n    this.questionId = data.questionId;\n    this.name = data.name;\n    this.isAnswer = data.isAnswer;\n    this.selected = false;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
