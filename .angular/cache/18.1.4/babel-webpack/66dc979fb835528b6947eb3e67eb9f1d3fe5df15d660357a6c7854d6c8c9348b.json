@@ -1,1 +1,0 @@
-{"ast":null,"code":"export * from './option';\nexport * from './question';\nexport * from './quiz';\nexport * from './quiz-config';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class ChatMessageDto {\n  constructor(user, emailId, message) {\n    this.user = user;\n    this.emailId = emailId;\n    this.message = message;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
