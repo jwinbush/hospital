@@ -100,6 +100,10 @@ a:hover {
   /* Adjust color as needed */
 }
 
+a.nav-link {
+  padding: 0 !important;
+}
+
 .nav-link::after {
   content: "";
   position: absolute;
@@ -108,7 +112,7 @@ a:hover {
   height: 0.8px;
   /* Adjust height as needed */
   width: 0;
-  background-color: #000;
+  background-color: #378fec;
   /* Adjust color as needed */
   transition: width 0.5s ease;
 }
@@ -123,7 +127,7 @@ a:hover {
   border: 1px solid #0d2851;
   border-radius: 6px;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+  transition: 0.4s ease-in-out;
 }
 .nav-button:hover {
   background: #0d2851;
