@@ -1,0 +1,546 @@
+.dark-mode-toggle {
+  position: absolute;
+  top: 75px;
+  right: 30px;
+  margin-top: 5px;
+  padding: 10px 20px;
+  display: flex;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.case {
+  font-size: 45px;
+}
+
+.dark-mode-toggle .fa-sun {
+  color: #ffbb52;
+  display: inline-block;
+}
+
+.dark-mode-toggle .fa-moon {
+  color: #fff;
+  display: none;
+}
+
+.dark-mode-toggle .sun {
+  display: inline-block;
+  padding: 5px;
+}
+
+.dark-mode-toggle .moon {
+  display: none;
+  padding: 10px;
+}
+
+.careers {
+  overflow: hidden;
+  padding: 0vh 0vw;
+}
+.careers .careers-hero {
+  height: 100vh;
+  background-image: url("../../assets/images/pexels-gdtography-277628-911738.jpg");
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-position: bottom;
+}
+.careers .careers-hero::before {
+  height: 100vh;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(231, 241, 255, 0.573), rgba(192, 225, 255, 0.708));
+  /* Color with low opacity */
+  z-index: 1;
+  /* Ensures the overlay is above the image */
+}
+.careers .careers-hero-content {
+  z-index: 2;
+  color: #002548;
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  max-width: 87vw;
+  margin: 0 auto;
+  align-items: center;
+}
+.careers .careers-hero-content .right-side {
+  width: 50vw;
+  text-align: left;
+}
+.careers .careers-hero-content .right-side h2 {
+  font-size: 80px;
+  line-height: 78px;
+  font-weight: 600;
+  padding-bottom: 1vh;
+}
+.careers .careers-hero-content .right-side h2 span {
+  font-weight: 600;
+  color: #45c4ff;
+}
+.careers .careers-hero-content .right-side p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.careers .careers-hero-content .left-side {
+  width: 50vw;
+}
+.careers .careers-hero-content .left-side .image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+}
+.careers .careers-hero-content .left-side .image-container .expand-image {
+  width: 14vw;
+  overflow: hidden;
+  opacity: 0;
+}
+.careers .use-cases-wrapper {
+  overflow: hidden;
+  padding-top: 13vh;
+  padding-bottom: 13vh;
+  height: 100vh;
+  background-color: #0d2851;
+  color: white;
+}
+.careers .use-cases-wrapper .wave img {
+  position: absolute;
+  width: 70%;
+  z-index: 0;
+  top: 40%;
+  right: 50%;
+  mix-blend-mode: luminosity;
+  transform: translate(50%, -50%);
+  opacity: 40%;
+}
+.careers .use-cases-wrapper .use-cases {
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  max-width: 86vw;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left {
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  width: 37vw;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+  z-index: 2;
+  height: 80vh;
+  color: white;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases {
+  overflow-y: auto;
+  height: 75vh;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, and Opera */
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases .case {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases .case h3 {
+  font-weight: 400;
+  font-size: 26px;
+  padding: 1.5vh 0;
+  margin: 0;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases .case p {
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 24px;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left .cases .case img {
+  position: relative;
+  z-index: 1;
+  max-width: 12vw;
+  width: 100%;
+  /* Adjust values as needed */
+  /* Adjust values as needed */
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left h2.use-cases-title {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 54px;
+  color: white;
+  margin: 0;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left h2.use-cases-title span {
+  color: #03a9f4;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left div.use-cases-anchors {
+  position: relative;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  color: #fff;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 50px 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 140%;
+  display: flex;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left div.use-cases-anchors a {
+  opacity: 0.4;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 26px;
+  color: #fff;
+  text-decoration: none;
+  transition: ease-in-out 0.3s;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-left div.use-cases-anchors a:hover {
+  opacity: 1;
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-right {
+  z-index: 1;
+  width: 37vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  row-gap: 6vh;
+  /* Bottom shadow */
+}
+.careers .use-cases-wrapper .use-cases .use-cases-scroll-right::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, and Opera */
+}
+.careers .why-us-wrapper {
+  overflow: hidden;
+  height: 100vh;
+  background-color: #0d2851;
+  width: 100vw;
+}
+.careers .why-us-wrapper .why-us-content h1 {
+  font-family: "FigtreeMedium", sans-serif !important;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  line-height: 56px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 50px;
+}
+.careers .why-us-wrapper .why-us-video {
+  position: absolute;
+  height: 100vh;
+}
+.careers .why-us-wrapper .why-us-video video {
+  opacity: 75%;
+  border-radius: 0px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.careers .services-wrapper {
+  background-image: url("https://images.pexels.com/photos/950241/pexels-photo-950241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 13vh;
+  padding-bottom: 13vh;
+  height: 100vh;
+  grid-template-columns: repeat(3, 28vw);
+  width: 100vw;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.careers .services-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 400vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Ensure the overlay does not interfere with clicks */
+  z-index: 1;
+  /* Ensure the overlay is on top of the background image */
+}
+.careers .services-wrapper .services-cards {
+  flex-direction: column;
+  display: grid;
+  justify-content: center;
+  gap: 1vw;
+  grid-template-columns: repeat(4, 20vw);
+  align-content: center;
+}
+.careers .services-wrapper .services-cards .card {
+  display: flex;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.2941176471);
+  border: 1px solid #fff;
+  height: 40vh;
+  align-items: center;
+}
+.careers .services-wrapper .services-cards .card .content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 24px;
+}
+.careers .services-wrapper .services-cards .card .content h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.careers .services-wrapper .services-cards .card .content img {
+  width: 100%;
+  max-width: 5vw;
+  max-height: 5vw;
+}
+.careers .services-wrapper .services-cards .card .content p {
+  font-weight: 300;
+  font-size: 17px;
+}
+.careers .services-wrapper .services-cards .card .content a {
+  text-decoration: none;
+  position: relative;
+  font-size: 15px;
+  border: 0;
+  padding: 10px 10px;
+  max-width: 7vw;
+  text-align: center;
+  outline: none;
+  color: #0d2851;
+  background: transparent;
+  border: 1px solid #0d2851;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.careers .services-wrapper .services-cards .card .content a:hover {
+  background: #0d2851;
+  color: #fff;
+  transition: ease-in-out 0.3s;
+  transform: scale(0.95);
+}
+.careers .join-wrapper {
+  justify-content: flex-start;
+  display: flex;
+  height: 65vh;
+  width: 100vw;
+  padding-left: 7vw;
+  align-items: center;
+}
+.careers .join-wrapper .left-side {
+  width: 50vw;
+  text-align: left;
+}
+.careers .join-wrapper .left-side h2 {
+  font-size: 50px;
+  line-height: 78px;
+  font-weight: 600;
+}
+.careers .join-wrapper .jobs {
+  width: 100%;
+  max-width: 60vw;
+  margin: 0 auto;
+  overflow: hidden;
+  border-bottom: 0 !important;
+}
+.careers .join-wrapper .jobs .item {
+  width: 100%;
+  max-width: 53vw;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.careers .join-wrapper .jobs .item .job-header {
+  margin: 0;
+  border-radius: 10px;
+  font-size: 22px;
+  background-color: #ffffff;
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+.careers .join-wrapper .jobs .item .accordion-content {
+  font-size: 16px;
+  display: none;
+  /* Initially hide the content */
+  overflow: hidden;
+  padding: 0 15px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+.careers .join-wrapper .jobs .item .accordion-content p {
+  margin: 15px 0;
+}
+
+.know-button {
+  position: sticky;
+  font-size: 15px;
+  border: 0;
+  padding: 10px 20px;
+  outline: none;
+  color: #fff;
+  background: #0d2851;
+  border: 1px solid #0d2851;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.know-button:hover {
+  transition: ease-in-out 0.3s;
+  transform: scale(0.95);
+}
+
+.rows {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.side {
+  flex-basis: 40%;
+  position: relative;
+  margin-left: 20px;
+}
+
+.button-image {
+  width: 0px;
+  transition: width 0.25s;
+}
+
+.dark {
+  background-color: #161625;
+}
+.dark .dark-mode-toggle {
+  background-color: #161625;
+}
+.dark .dark-mode-toggle .sun {
+  display: none;
+}
+.dark .dark-mode-toggle .moon {
+  display: inline-block;
+}
+.dark h3 {
+  color: #fff;
+}
+.dark .left-side h2 {
+  color: #fff;
+}
+.dark .left-side p {
+  color: #9ea5ad;
+}
+.dark .right-side img.controller {
+  display: none;
+  width: 90%;
+}
+.dark .right-side img.controller-dark {
+  display: inline;
+  width: 90%;
+}
+.dark .card {
+  border: none;
+  background-color: #161625;
+}
+.dark .card .box {
+  background: #323f4b;
+}
+.dark .card .box .content h2 {
+  color: #fff;
+}
+.dark .card .box .content p {
+  color: #fff;
+}
+.dark .card .box .content a {
+  background: #03a9f4;
+  color: #fff;
+}
+.dark .jumbo-margin {
+  background-color: #131417;
+  color: #fff;
+}
+
+@media only screen and (max-width: 800px) {
+  .rows {
+    flex-direction: column-reverse;
+    margin: 50px 0;
+  }
+  .right-side {
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+}
+.jumbo-margin {
+  margin: 0px;
+}
+
+@media only screen and (max-width: 900px) {
+  .row-about-us {
+    flex-direction: column;
+    margin: 0px;
+  }
+  .about-img {
+    height: 250px;
+    width: 250px;
+    margin-top: 35px;
+  }
+}
+.about-img {
+  margin-bottom: 20px;
+}
+
+.pa-padding {
+  padding: 10px 25px;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.h-size {
+  font-size: 40px;
+}
+
+.space {
+  padding: 0px;
+}
+
+.a-link {
+  text-decoration: none;
+}
+
+.rows {
+  margin: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  .rows {
+    padding-top: 12%;
+  }
+  .case {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+}/*# sourceMappingURL=careers.component.css.map */

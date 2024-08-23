@@ -6,6 +6,7 @@ import { DashboardComponent } from './Hospitals/dashboard/dashboard.component';
 import { HomeComponent } from './Home/home/home.component';
 import { AboutComponent } from './About/about.component';
 import { FaqComponent } from './Faq/faq.component';
+import { CareersComponent } from './Careers/careers.component';
 import { SignupPatientComponent } from './Patients/signup-patient/signup-patient.component';
 import { LoginPatientComponent } from './Patients/login-patient/login-patient.component';
 import { DashboardPatientComponent } from './Patients/dashboard-patient/dashboard-patient.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'faq', component: FaqComponent },
+  { path: 'careers', component: CareersComponent },
   { path: 'h-forget-pas', component: ForgetPasComponent },
   { path: 'p-forget-pas', component: ForgetPasPatientComponent },
   { path: 'self-analysis', component: SelfAnalysisComponent },
@@ -43,7 +45,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    useHash: true,
+    useHash: false,
     scrollPositionRestoration: 'enabled', // Add options right here
   })],
   exports: [RouterModule]

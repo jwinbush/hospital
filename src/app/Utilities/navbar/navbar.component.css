@@ -136,6 +136,133 @@ a.nav-link {
   transform: scale(0.95);
 }
 
+.sidebar {
+  border-radius: 10px 0px 0px 10px;
+  position: fixed;
+  top: 0;
+  right: -40vw;
+  width: 40vw;
+  height: 100vh;
+  background-color: #10396a;
+  background-size: cover;
+  background-image: url("../../../assets/images/pexels-photo-23510864.webp");
+  z-index: 1002;
+  transition: transform 0.4s ease;
+}
+.sidebar .sidebar-content {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1003;
+  padding: 0vh 3vw;
+  color: white;
+  position: relative;
+}
+.sidebar .sidebar-content h2 {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 5vh;
+}
+.sidebar .sidebar-content .close-sidebar {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  filter: invert(1);
+}
+.sidebar .sidebar-content .close-sidebar:hover {
+  transform: rotate(360deg);
+}
+.sidebar .sidebar-content .form-container {
+  background-color: transparent;
+  border-radius: 10px;
+  width: 100%;
+}
+.sidebar .sidebar-content .contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .sidebar-content .form-group {
+  margin-bottom: 15px;
+}
+.sidebar .sidebar-content .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.sidebar .sidebar-content .form-group input,
+.sidebar .sidebar-content .form-group textarea {
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.3803921569);
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+.sidebar .sidebar-content .form-group input:focus,
+.sidebar .sidebar-content .form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+.sidebar .sidebar-content .form-group input::-moz-placeholder, .sidebar .sidebar-content .form-group textarea::-moz-placeholder {
+  color: #ffffff;
+}
+.sidebar .sidebar-content .form-group input::placeholder,
+.sidebar .sidebar-content .form-group textarea::placeholder {
+  color: #ffffff;
+}
+.sidebar .sidebar-content .form-group textarea {
+  resize: vertical;
+}
+.sidebar .sidebar-content .submit-button {
+  max-width: 7vw;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: #10396a;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: ease-in-out 0.5s;
+}
+.sidebar .sidebar-content .submit-button:hover {
+  transform: scale(0.95);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  background: rgba(255, 255, 255, 0);
+  opacity: 0;
+  transition: opacity 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+  transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+  transition: opacity 0.5s ease, backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
+.backdrop.active {
+  pointer-events: all;
+  opacity: 1;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
 /* Added Hover Effect on Navigation links */
 .nav-link:hover::after {
   width: 100%;

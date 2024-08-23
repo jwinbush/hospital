@@ -11,6 +11,8 @@ import { FooterComponent } from './Utilities/footer/footer.component';
 import { HomeComponent } from './Home/home/home.component';
 import { AboutComponent } from './About/about.component';
 import { FaqComponent } from './Faq/faq.component';
+import { ServicesComponent } from './Our-Services/services.component';
+import { CareersComponent } from './Careers/careers.component';
 import { SignupPatientComponent } from './Patients/signup-patient/signup-patient.component';
 import { LoginPatientComponent } from './Patients/login-patient/login-patient.component';
 import { DashboardPatientComponent } from './Patients/dashboard-patient/dashboard-patient.component';
@@ -31,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { ResourcesComponent } from './common-services/resources/resources.component';
 import { OurProductsComponent } from './common-services/our-products/our-products.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { RouterModule, Routes } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharingService } from './services/sharing.service';
 import { ChatComponent } from './chat/chat/chat.component';
@@ -43,6 +46,21 @@ import { MatListModule } from '@angular/material/list';
 import { ProfileHospitalComponent } from './Hospitals/profile-hospital/profile-hospital.component';
 import { ErrorPageComponent } from './Utilities/error-page/error-page.component';
 
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'our-services', component: ServicesComponent },
+  { path: 'careers', component: CareersComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '404', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/404' }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +72,8 @@ import { ErrorPageComponent } from './Utilities/error-page/error-page.component'
     HomeComponent,
     AboutComponent,
     FaqComponent,
+    ServicesComponent,
+    CareersComponent,
     SignupPatientComponent,
     LoginPatientComponent,
     DashboardPatientComponent,
@@ -87,8 +107,11 @@ import { ErrorPageComponent } from './Utilities/error-page/error-page.component'
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RouterModule.forRoot(routes)
   ],
+  exports: [RouterModule],
+
   providers: [SharingService],
   bootstrap: [AppComponent]
 })

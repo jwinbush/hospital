@@ -1,190 +1,299 @@
-$blue: #0d2851;
-$purple: #4747A1;
-$lpurple: #7978E9;
-$pink: #F3797E;
-.container {
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
-    margin: 0 auto;
-    padding: 0;
-}
-
-
-/* Navbar style when scrolled past the first change point */
-
-#container.scrolled {
-    background-color: white;
-}
-
-#container.scrolled-blue .navbar {
-    box-shadow: 0 -1px #ffffff71 inset;
-}
-
-.nav-link,
-.navbar-logo-text {
-    transition: color 0.5s ease;
-}
-
-.nav-link.white,
-.navbar-logo-text.white {
-    color: white;
-}
-
-.nav-link.blue,
-.navbar-logo-text.blue {
-    color: $blue;
-    /* Assuming $blue is a CSS variable or you can replace it with the actual color value */
-}
-
-
-/* Change color when scrolled past a certain point */
-
-
-/* Change color when in .use-cases-wrapper */
-
-#container.scrolled-blue {
-    background-color: $blue;
-}
-
-a:hover {
-    border-radius: 4px !important;
-    transition: 0.5s ease !important;
-}
-
-.navbar {
-    box-shadow: 0 -1px #0d285171 inset;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    margin: 0 auto;
-    max-width: 86vw;
-    position: relative;
-    z-index: 100;
-    .navbar-brand-dark {
-        display: none;
+    $blue: #0d2851;
+    $purple: #4747A1;
+    $lpurple: #7978E9;
+    $pink: #F3797E;
+    .container {
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+        margin: 0 auto;
+        padding: 0;
     }
-    &-nav {
-        column-gap: 50px;
-        align-items: center;
-        li a {
-            font-weight: 300;
+    /* Navbar style when scrolled past the first change point */
+    
+    #container.scrolled {
+        background-color: white;
+    }
+    
+    #container.scrolled-blue .navbar {
+        box-shadow: 0 -1px #ffffff71 inset;
+    }
+    
+    .nav-link,
+    .navbar-logo-text {
+        transition: color 0.5s ease;
+    }
+    
+    .nav-link.white,
+    .navbar-logo-text.white {
+        color: white;
+    }
+    
+    .nav-link.blue,
+    .navbar-logo-text.blue {
+        color: $blue;
+        /* Assuming $blue is a CSS variable or you can replace it with the actual color value */
+    }
+    /* Change color when scrolled past a certain point */
+    /* Change color when in .use-cases-wrapper */
+    
+    #container.scrolled-blue {
+        background-color: $blue;
+    }
+    
+    a:hover {
+        border-radius: 4px !important;
+        transition: 0.5s ease !important;
+    }
+    
+    .navbar {
+        box-shadow: 0 -1px #0d285171 inset;
+        padding-top: 0.5vh;
+        padding-bottom: 0.5vh;
+        margin: 0 auto;
+        max-width: 86vw;
+        position: relative;
+        z-index: 100;
+        .navbar-brand-dark {
+            display: none;
         }
-    }
-    &-logo {
-        max-height: 7vh;
-        p {
-            font-size: 12px;
-            font-weight: 300;
-            span {
-                font-size: 26px;
-                font-weight: 600;
+        &-nav {
+            column-gap: 50px;
+            align-items: center;
+            li a {
+                font-weight: 300;
+            }
+        }
+        &-logo {
+            max-height: 7vh;
+            p {
+                font-size: 12px;
+                font-weight: 300;
+                span {
+                    font-size: 26px;
+                    font-weight: 600;
+                }
             }
         }
     }
-}
-
-.bg-light {
-    background-color: #ffffff00 !important;
-}
-
-.itemActive {
-    background-color: #7da0fa93 !important;
-    border-radius: 4px !important;
-    transition: 0.1s ease !important;
-}
-
-.nav-link {
-    font-weight: 500;
-    font-size: 118%;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    font-size: 16px;
-    padding: 2px 0;
-    text-decoration: none;
-    /* Adjust color as needed */
-}
-
-a.nav-link {
-    padding: 0!important;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0.8px;
-    /* Adjust height as needed */
-    width: 0;
-    background-color: #378fec;
-    /* Adjust color as needed */
-    transition: width 0.5s ease;
-}
-
-.nav-button {
-    font-size: 15px;
-    border: 0;
-    padding: 10px 20px;
-    outline: none;
-    color: $blue;
-    background: transparent;
-    border: 1px solid $blue;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.4s ease-in-out;
-    &:hover {
-        background: $blue;
-        color: #fff;
-        transition: ease-in-out 0.3s;
-        transform: scale(0.95);
+    
+    .bg-light {
+        background-color: #ffffff00 !important;
     }
-}
-
-
-/* Added Hover Effect on Navigation links */
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-button.navbar-toggler {
-    border: 0;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.container {
-    max-width: none;
-}
-
-.dark {
-    background-color: #131417 !important;
-    .navbar {
-        background-color: #131417 !important;
-    }
-    a {
-        color: #fff !important;
-    }
-    a:hover {
-        background-color: #CD104D !important;
+    
+    .itemActive {
+        background-color: #7da0fa93 !important;
         border-radius: 4px !important;
         transition: 0.1s ease !important;
     }
-}
-
-@media (max-width:991px) {
+    
     .nav-link {
-        margin-top: 10px;
-        padding: 1rem 1rem;
+        font-weight: 500;
+        font-size: 118%;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        padding: 2px 0;
+        text-decoration: none;
+        /* Adjust color as needed */
     }
-}
+    
+    a.nav-link {
+        padding: 0!important;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0.8px;
+        /* Adjust height as needed */
+        width: 0;
+        background-color: #378fec;
+        /* Adjust color as needed */
+        transition: width 0.5s ease;
+    }
+    
+    .nav-button {
+        font-size: 15px;
+        border: 0;
+        padding: 10px 20px;
+        outline: none;
+        color: $blue;
+        background: transparent;
+        border: 1px solid $blue;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+        &:hover {
+            background: $blue;
+            color: #fff;
+            transition: ease-in-out 0.3s;
+            transform: scale(0.95);
+        }
+    }
+    
+    .sidebar {
+        border-radius: 10px 0px 0px 10px;
+        position: fixed;
+        top: 0;
+        right: -40vw; // Hidden initially
+        width: 40vw;
+        height: 100vh;
+        background-color: #10396a;
+        background-size: cover;
+        background-image: url('../../../assets/images/pexels-photo-23510864.webp');
+        z-index: 1002;
+        transition: transform 0.4s ease;
+        .sidebar-content {
+            height: 100%;
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1003;
+            padding: 0vh 3vw;
+            color: white;
+            position: relative;
+            h2 {
+                font-size: 50px;
+                font-weight: 600;
+                margin-bottom: 5vh;
+            }
+            .close-sidebar {
+                position: absolute;
+                top: 23px;
+                right: 23px;
+                font-size: 20px;
+                color: white;
+                cursor: pointer;
+                filter: invert(1);
+                &:hover {
+                    transform: rotate(360deg); // Rotate 360 degrees on hover
+                }
+            }
+            .form-container {
+                background-color: transparent;
+                border-radius: 10px;
+                width: 100%;
+            }
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+            }
+            .form-group {
+                margin-bottom: 15px;
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                    color: #ffffff;
+                }
+                input,
+                textarea {
+                    backdrop-filter: blur(6px);
+                    color: #ffffff; // Placeholder text color
+                    background-color: #ffffff61;
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ffffff;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    transition: border-color 0.3s;
+                    &:focus {
+                        border-color: #3498db;
+                        outline: none;
+                    }
+                    &::placeholder {
+                        color: #ffffff; // Placeholder text color
+                    }
+                }
+                textarea {
+                    resize: vertical;
+                }
+            }
+            .submit-button {
+                max-width: 7vw;
+                width: 100%;
+                padding: 10px 15px;
+                background-color: #ffffff;
+                color: #10396a;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: ease-in-out 0.5s;
+                &:hover {
+                    transform: scale(0.95);
+                }
+            }
+        }
+    }
+    
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(0);
+        background: rgba(255, 255, 255, 0);
+        opacity: 0;
+        transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+        z-index: 1000;
+        pointer-events: none; // Disable interaction initially
+        &.active {
+            pointer-events: all; // Enable interaction when active
+            opacity: 1;
+            backdrop-filter: blur(8px);
+        }
+    }
+    /* Added Hover Effect on Navigation links */
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    
+    button.navbar-toggler {
+        border: 0;
+    }
+    
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .container {
+        max-width: none;
+    }
+    
+    .dark {
+        background-color: #131417 !important;
+        .navbar {
+            background-color: #131417 !important;
+        }
+        a {
+            color: #fff !important;
+        }
+        a:hover {
+            background-color: #CD104D !important;
+            border-radius: 4px !important;
+            transition: 0.1s ease !important;
+        }
+    }
+    
+    @media (max-width:991px) {
+        .nav-link {
+            margin-top: 10px;
+            padding: 1rem 1rem;
+        }
+    }

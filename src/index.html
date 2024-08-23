@@ -5,14 +5,14 @@
 <head>
     <meta charset="utf-8">
     <title>hospital</title>
-    <base href="/hospital/">
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="Hospitals services at your fingertips." />
     <meta name="keywords" content="hospital , Pranjay Poddar , hospital India, heathify , healthapp, health app, hospital, hospital services, hospital app, angular app, hospital management system, hospital support, #tagSRM, SRM University, SRM institute Of Science and technology India ktr, kattankulathur, medicines, ICU beds, oxugen cylinders, isolation beds , covid help, covid stats, coviwin. covid resources, covid analysis, covid testing, self analysis, book service hospital services, best hospital services, search hospital in a city"
     />
     <meta name="author" content="Team hospital" />
-    <meta property="og:url" content="https://jmwinbush.com/hospital/home" />
+    <meta property="og:url" content="https://hospital.netlify.app/home" />
     <meta property="og:title" content="hospital" />
     <meta property="og:description" content="Hospitals services at your fingertips." />
     <meta property="og:image" content="https://billboard.srmkzilla.net/api/blog?title=hospital&subtitle=Team%20hospital%20-%202021&theme=dark" />
@@ -72,6 +72,72 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButton = document.querySelector('.nav-button');
+            const sidebar = document.querySelector('.sidebar');
+            const backdrop = document.querySelector('.backdrop');
+            const closeSidebar = document.querySelector('.close-sidebar');
+
+            navButton.addEventListener('click', () => {
+                // Slide in the sidebar from the right
+                gsap.to(sidebar, {
+                    x: '-40vw',
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+
+                // Show the backdrop and apply blur
+                backdrop.classList.add('active');
+            });
+
+            // Close the sidebar when clicking on the close icon
+            closeSidebar.addEventListener('click', () => {
+                // Slide out the sidebar to the right
+                gsap.to(sidebar, {
+                    x: '0',
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+
+                // Hide the backdrop and remove blur
+                backdrop.classList.remove('active');
+            });
+
+            // Close the sidebar when clicking outside of it (on the backdrop)
+            backdrop.addEventListener('click', () => {
+                // Slide out the sidebar to the right
+                gsap.to(sidebar, {
+                    x: '0',
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+
+                // Hide the backdrop and remove blur
+                backdrop.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const closeIcon = document.querySelector('.close-sidebar');
+
+            closeIcon.addEventListener('mouseenter', () => {
+                gsap.to(closeIcon, {
+                    rotation: 360,
+                    duration: 0.5,
+                    ease: "power2.inOut"
+                });
+            });
+
+            closeIcon.addEventListener('mouseleave', () => {
+                gsap.to(closeIcon, {
+                    rotation: 0,
+                    duration: 0.5,
+                    ease: "power2.inOut"
+                });
+            });
+        });
+
+
         document.addEventListener('DOMContentLoaded', function() {
             gsap.registerPlugin(ScrollTrigger);
 
@@ -154,6 +220,50 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're on the About or Services page
+            const path = window.location.pathname;
+            const isAboutOrServicesPage = path.includes('/about') || path.includes('/services');
+
+            if (isAboutOrServicesPage) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const navbar = document.getElementById('container');
+                const navLinks = document.querySelectorAll('.nav-link');
+                const navbarLogoText = document.querySelector('.navbar-logo-text');
+                const changePoint = window.innerHeight * 0.5; // 50vh
+
+                // Change navbar and links on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > changePoint) {
+                        navbar.classList.add('scrolled');
+                        setNavbarElementsColor('blue', 'white-bg');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                        setNavbarElementsColor('white', 'transparent-bg');
+                    }
+                });
+
+                // Helper function to add/remove classes
+                function setNavbarElementsColor(textColorClass, bgColorClass) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('white', 'blue');
+                        link.classList.add(textColorClass);
+                    });
+                    navbarLogoText.classList.remove('white', 'blue');
+                    navbarLogoText.classList.add(textColorClass);
+
+                    // Set background color for navbar
+                    navbar.classList.remove('transparent-bg', 'white-bg');
+                    navbar.classList.add(bgColorClass);
+                }
+
+                // Initially set the navbar elements to white color with transparent background
+                setNavbarElementsColor('white', 'transparent-bg');
+            }
+        });
+
+
         document.addEventListener("DOMContentLoaded", function() {
             gsap.registerPlugin(ScrollTrigger);
 
@@ -188,6 +298,37 @@
             initializeAudio();
         });
 
+        window.addEventListener('load', () => {
+            const images = document.querySelectorAll('.expand-image');
+
+            gsap.to(images, {
+                height: 'auto',
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+                stagger: 0.2
+            });
+        });
+
+        $(document).ready(function() {
+            $('.item').click(function() {
+                // Remove active class from all items
+                $('.item').removeClass('active');
+
+                // Add active class to the clicked item
+                $(this).addClass('active');
+
+                // Get data attributes from clicked item
+                var title = $(this).data('title');
+                var description = $(this).data('description');
+                var imgSrc = $(this).data('img');
+
+                // Update right side content
+                $('#job-title').text(title);
+                $('#job-description').text(description);
+                $('#job-image').attr('src', imgSrc);
+            });
+        });
 
 
 

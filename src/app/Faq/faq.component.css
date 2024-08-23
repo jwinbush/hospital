@@ -44,7 +44,6 @@
   overflow: hidden;
 }
 .faq .faq-hero .hero-content {
-  padding-top: 20vh;
   height: 100%;
   color: #0d2851;
   position: relative;
@@ -55,6 +54,7 @@
   margin: 0 auto;
   z-index: 2;
   font-weight: 400;
+  align-items: center;
 }
 .faq .faq-hero .hero-content .left-side {
   width: 50vw;
