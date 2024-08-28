@@ -24,9 +24,10 @@ $pink:#F3797E;
 }
 
 .hospital-login {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     position: relative;
     padding-top: 12vh;
+    height: 100vh;
 }
 
 .image {
@@ -41,7 +42,7 @@ $pink:#F3797E;
 }
 
 .card_container {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 #hlogin_heading {
@@ -52,13 +53,13 @@ $pink:#F3797E;
 }
 
 .forgot_pass {
-  float: right;
-  padding-top: 0.5rem;
-  text-decoration: none;
+    float: right;
+    padding-top: 0.5rem;
+    text-decoration: none;
 }
 
 .ip_field {
-  padding: 0.35rem 0 !important;
+    padding: 0.35rem 0 !important;
 }
 
 .dark {

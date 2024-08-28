@@ -219,11 +219,10 @@
                 markers: false // For debugging purposes, remove in production
             });
         });
-
         document.addEventListener('DOMContentLoaded', function() {
             // Check if we're on the About or Services page
             const path = window.location.pathname;
-            const isAboutOrServicesPage = path.includes('/about') || path.includes('/services');
+            const isAboutOrServicesPage = path.includes('/about') || path.includes('/our-services');
 
             if (isAboutOrServicesPage) {
                 gsap.registerPlugin(ScrollTrigger);
@@ -231,36 +230,208 @@
                 const navbar = document.getElementById('container');
                 const navLinks = document.querySelectorAll('.nav-link');
                 const navbarLogoText = document.querySelector('.navbar-logo-text');
-                const changePoint = window.innerHeight * 0.5; // 50vh
+                const navbarButton = document.querySelector('.nav-button');
 
-                // Change navbar and links on scroll
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > changePoint) {
-                        navbar.classList.add('scrolled');
-                        setNavbarElementsColor('blue', 'white-bg');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                        setNavbarElementsColor('white', 'transparent-bg');
-                    }
+                // Initial state: transparent background and white text
+                gsap.set(navbar, {
+                    backgroundColor: 'transparent'
+                });
+                gsap.set(navLinks, {
+                    color: 'white'
+                });
+                gsap.set(navbarLogoText, {
+                    color: 'white'
+                });
+                gsap.set(navbarButton, {
+                    color: 'white',
+                    backgroundColor: 'transparent',
+                    borderColor: 'white'
                 });
 
-                // Helper function to add/remove classes
-                function setNavbarElementsColor(textColorClass, bgColorClass) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('white', 'blue');
-                        link.classList.add(textColorClass);
-                    });
-                    navbarLogoText.classList.remove('white', 'blue');
-                    navbarLogoText.classList.add(textColorClass);
-
-                    // Set background color for navbar
-                    navbar.classList.remove('transparent-bg', 'white-bg');
-                    navbar.classList.add(bgColorClass);
-                }
-
-                // Initially set the navbar elements to white color with transparent background
-                setNavbarElementsColor('white', 'transparent-bg');
+                // Create the ScrollTrigger for changing navbar background and text color
+                ScrollTrigger.create({
+                    trigger: document.body,
+                    start: "top 60vh", // Trigger at the top of the page
+                    end: "60vh top", // End the animation at 60vh
+                    onEnter: () => {
+                        // Scrolling down within 60vh
+                        gsap.to(navbar, {
+                            backgroundColor: 'transparent',
+                            duration: 0.3
+                        });
+                        gsap.to(navLinks, {
+                            color: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarLogoText, {
+                            color: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarButton, {
+                            color: 'white',
+                            backgroundColor: 'transparent',
+                            borderColor: 'white',
+                            duration: 0.3
+                        });
+                    },
+                    onLeave: () => {
+                        // Scrolling down past 60vh
+                        gsap.to(navbar, {
+                            backgroundColor: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navLinks, {
+                            color: '#0d2851',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarLogoText, {
+                            color: '#0d2851',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarButton, {
+                            color: '#0d2851',
+                            backgroundColor: 'transparent',
+                            borderColor: '#0d2851',
+                            duration: 0.3
+                        });
+                    },
+                    onEnterBack: () => {
+                        // Scrolling back up within 60vh
+                        gsap.to(navbar, {
+                            backgroundColor: 'transparent',
+                            duration: 0.3
+                        });
+                        gsap.to(navLinks, {
+                            color: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarLogoText, {
+                            color: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarButton, {
+                            color: 'white',
+                            backgroundColor: 'transparent',
+                            borderColor: 'white',
+                            duration: 0.3
+                        });
+                    },
+                    onLeaveBack: () => {
+                        // Scrolling back up past 60vh
+                        gsap.to(navbar, {
+                            backgroundColor: 'white',
+                            duration: 0.3
+                        });
+                        gsap.to(navLinks, {
+                            color: '#0d2851',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarLogoText, {
+                            color: '#0d2851',
+                            duration: 0.3
+                        });
+                        gsap.to(navbarButton, {
+                            color: '#0d2851',
+                            backgroundColor: 'transparent',
+                            borderColor: '#0d2851',
+                            duration: 0.3
+                        });
+                    },
+                });
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Select all anchor elements in the use-cases-anchors
+            const useCaseAnchors = document.querySelectorAll('.use-cases-anchors a');
+            const cases = document.querySelectorAll('.case');
+
+            cases.forEach((caseElement, index) => {
+                ScrollTrigger.create({
+                    trigger: caseElement,
+                    start: "top 10%", // Start when the case is 90% from the top of the viewport
+                    end: "bottom 80%", // End the animation when the case is 80% from the top
+                    onEnter: () => {
+                        highlightAnchor(index);
+                    },
+                    onEnterBack: () => {
+                        highlightAnchor(index);
+                    },
+                    markers: false // Enable markers for debugging
+                });
+            });
+
+            function highlightAnchor(activeIndex) {
+                useCaseAnchors.forEach((anchor, index) => {
+                    if (index === activeIndex) {
+                        gsap.to(anchor, {
+                            color: 'white',
+                            opacity: 1,
+                            duration: 0.3
+                        });
+                    } else {
+                        gsap.to(anchor, {
+                            color: 'white',
+                            opacity: 0.6,
+                            duration: 0.3
+                        });
+                    }
+                });
+            }
+
+            // Set initial state of anchors to 60% white opacity
+            gsap.set(useCaseAnchors, {
+                color: 'white',
+                opacity: 0.6
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Select all anchor elements in the use-cases-anchors
+            const useCaseAnchors = document.querySelectorAll('.use-cases-scroll-left .use-cases-anchors a');
+            const cases = document.querySelectorAll('.cases');
+
+            cases.forEach((caseElement, index) => {
+                ScrollTrigger.create({
+                    trigger: caseElement,
+                    start: "top top", // Start when the case is 90% from the top of the viewport
+                    end: "top 80%", // End the animation when the case is 80% from the top
+                    onEnter: () => {
+                        highlightAnchor(index);
+                    },
+                    onEnterBack: () => {
+                        highlightAnchor(index);
+                    }
+                });
+            });
+
+            function highlightAnchor(activeIndex) {
+                useCaseAnchors.forEach((anchor, index) => {
+                    if (index === activeIndex) {
+                        gsap.to(anchor, {
+                            color: 'white',
+                            opacity: 1,
+                            duration: 0.3
+                        });
+                    } else {
+                        gsap.to(anchor, {
+                            color: 'white',
+                            opacity: 0.6,
+                            duration: 0.3
+                        });
+                    }
+                });
+            }
+
+            // Set initial state of anchors to 60% white opacity
+            gsap.set(useCaseAnchors, {
+                color: 'white',
+                opacity: 0.6
+            });
         });
 
 

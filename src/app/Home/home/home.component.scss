@@ -49,13 +49,17 @@ $pink: #F3797E;
             color: #002548;
             position: relative;
             top: 0;
-            display: flex;
-            flex-direction: row;
             max-width: 87vw;
+            width: 100%;
             margin: 0 auto;
+            align-items: center;
+            height: 100%;
+            display: flex;
             .left-side {
+                display: flex;
+                flex-direction: column;
                 //if right side is commented out set to 50vw
-                width: 50vw;
+                width: 55vw;
                 text-align: left;
                 h2 {
                     font-size: 80px;
@@ -67,6 +71,17 @@ $pink: #F3797E;
                     font-size: 20px;
                     line-height: 30px;
                     font-weight: 300;
+                }
+                @media (max-width: 768px) {
+                    // Adjust the max-width based on your desired breakpoint
+                    h2 {
+                        font-size: 40px; // Smaller font size for mobile
+                        line-height: 46px; // Adjusted line height for mobile
+                    }
+                    p {
+                        font-size: 16px; // Smaller font size for mobile
+                        line-height: 24px; // Adjusted line height for mobile
+                    }
                 }
             }
             .right-side {
@@ -260,8 +275,7 @@ $pink: #F3797E;
                     img {
                         position: relative;
                         z-index: 1;
-                        max-width: 12vw;
-                        width: 100%;
+                        width: 9vw;
                         /* Adjust values as needed */
                         /* Adjust values as needed */
                     }
@@ -309,7 +323,7 @@ $pink: #F3797E;
                 z-index: 2;
                 line-height: 56px;
                 text-align: center;
-                font-weight: 400;
+                font-weight: 500;
                 font-size: 50px;
             }
         }
@@ -335,7 +349,7 @@ $pink: #F3797E;
         background-repeat: no-repeat;
         padding-top: 13vh;
         padding-bottom: 13vh;
-        height: 100vh;
+        height: 102vh;
         grid-template-columns: repeat(3, 28vw);
         width: 100vw;
         margin: 0 auto;
@@ -365,7 +379,7 @@ $pink: #F3797E;
                 backdrop-filter: blur(6px);
                 background-color: #ffffff4b;
                 border: 1px solid #fff;
-                height: 40vh;
+                height: 34vh;
                 align-items: center;
                 .content {
                     display: flex;
@@ -408,6 +422,30 @@ $pink: #F3797E;
                             transform: scale(0.95);
                         }
                     }
+                }
+            }
+        }
+        .a-link {
+            width: 100%;
+            text-align: center;
+            margin: 7vh 0;
+            .nav-button {
+                margin: 0 auto;
+                font-size: 15px;
+                border: 0;
+                padding: 10px 20px;
+                outline: none;
+                color: $blue;
+                background: transparent;
+                border: 1px solid $blue;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: 0.4s ease-in-out;
+                &:hover {
+                    background: $blue;
+                    color: #fff;
+                    transition: ease-in-out 0.3s;
+                    transform: scale(0.95);
                 }
             }
         }

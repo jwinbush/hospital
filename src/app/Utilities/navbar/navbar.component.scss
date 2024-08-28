@@ -57,6 +57,7 @@
         max-width: 86vw;
         position: relative;
         z-index: 100;
+        overflow-x: hidden;
         .navbar-brand-dark {
             display: none;
         }
@@ -65,6 +66,18 @@
             align-items: center;
             li a {
                 font-weight: 300;
+            }
+            @media (max-width: 768px) {
+                display: none;
+                // Adjust the max-width based on your desired breakpoint
+                h2 {
+                    font-size: 40px; // Smaller font size for mobile
+                    line-height: 46px; // Adjusted line height for mobile
+                }
+                p {
+                    font-size: 16px; // Smaller font size for mobile
+                    line-height: 24px; // Adjusted line height for mobile
+                }
             }
         }
         &-logo {
