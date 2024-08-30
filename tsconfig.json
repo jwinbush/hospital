@@ -1,8 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./hospital/",
     "outDir": "./dist/out-tsc",
+    "noEmitOnError": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,

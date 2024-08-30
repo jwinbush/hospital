@@ -11,7 +11,7 @@
                 <div class="card" [@flyInOut]>
                     <form [formGroup]="HLoginForm" class="card_container">
                         <mat-form-field>
-                            <input class="ip_field"  matInput placeholder="Email" type="email" formControlName="emailId">
+                            <input class="ip_field" matInput placeholder="Email" type="email" formControlName="emailId">
                             <mat-error *ngIf="email?.invalid && email?.touched">
                                 Please, enter valid email address
                             </mat-error>
