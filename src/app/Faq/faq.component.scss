@@ -46,6 +46,13 @@ $pink: #F3797E;
     .faq-hero {
         height: 85vh;
         overflow: hidden;
+        @media (max-width: 768px) {
+            height: 100vh;
+            // Adjust the max-width based on your desired breakpoint
+        }
+        @media (max-width: 425px) {
+            height: auto;
+        }
         .hero-content {
             height: 100%;
             color: $blue;
@@ -58,6 +65,11 @@ $pink: #F3797E;
             z-index: 2;
             font-weight: 400;
             align-items: center;
+            @media (max-width: 425px) {
+                flex-direction: column;
+                margin-top: 14vh;
+                margin-bottom: 10vh;
+            }
             .left-side {
                 //if right side is commented out set to 50vw
                 width: 50vw;
@@ -66,6 +78,15 @@ $pink: #F3797E;
                     font-size: 80px;
                     line-height: 78px;
                     font-weight: 600;
+                    @media (max-width: 768px) {
+                        font-size: 60px;
+                        // Adjust the max-width based on your desired breakpoint
+                    }
+                }
+                @media (max-width: 425px) {
+                    max-width: 90vw;
+                    width: 100%;
+                    text-align: center;
                 }
             }
             .accord {
@@ -74,6 +95,9 @@ $pink: #F3797E;
                 margin: 0 auto;
                 overflow: hidden;
                 border-bottom: 0!important;
+                @media (max-width: 425px) {
+                    max-width: 90vw;
+                }
                 .accordion-item {
                     padding: 6px 0;
                     border-bottom: 1px solid #ddd;
@@ -88,6 +112,10 @@ $pink: #F3797E;
                         &:hover {
                             background-color: #b0e3fb58;
                         }
+                        @media (max-width: 768px) {
+                            font-size: 18px;
+                            // Adjust the max-width based on your desired breakpoint
+                        }
                     }
                     .accordion-content {
                         font-size: 16px;
@@ -97,6 +125,10 @@ $pink: #F3797E;
                         padding: 0 15px;
                         background-color: #fff;
                         border-top: 1px solid #ddd;
+                        @media (max-width: 768px) {
+                            font-size: 14px;
+                            // Adjust the max-width based on your desired breakpoint
+                        }
                     }
                     .accordion-content {
                         p {
@@ -767,14 +799,4 @@ $pink: #F3797E;
 
 .rows {
     margin: 0;
-}
-
-@media only screen and (max-width: 576px) {
-    .rows {
-        padding-top: 12%;
-    }
-    .case {
-        font-size: 30px;
-        margin-bottom: 5px;
-    }
 }

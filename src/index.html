@@ -18,6 +18,8 @@
     <meta property="og:image" content="https://billboard.srmkzilla.net/api/blog?title=hospital&subtitle=Team%20hospital%20-%202021&theme=dark" />
     <script src="https://kit.fontawesome.com/acc31d65b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <!-- <link rel="stylesheet" type="text/css" href="../src/styles.css"> -->
     <!-- <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
@@ -70,29 +72,103 @@
 
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#mobile-nav');
+
+            let isOpen = false; // Track the state of the navbar
+
+            navbarToggler.addEventListener('click', function() {
+                if (!isOpen) {
+                    // Use GSAP to animate opening
+                    gsap.to(navbarCollapse, {
+                        display: 'block',
+                        height: 'auto',
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    });
+                    isOpen = true;
+                } else {
+                    // Use GSAP to animate closing
+                    gsap.to(navbarCollapse, {
+                        display: 'none',
+                        height: 0,
+                        duration: 0.5,
+                        ease: 'power2.in'
+                    });
+                    isOpen = false;
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Initial setup: hide the menu off-screen and ensure display is none
+            gsap.set('#mobile-nav', {
+                y: '-100%',
+                opacity: 0,
+                display: 'none'
+            });
+
+            // Function to open the mobile nav
+            $('.navbar-toggler').on('click', function() {
+                gsap.to('#mobile-nav', {
+                    duration: 0.5,
+                    y: '0%', // Slide down into view
+                    opacity: 1, // Make it fully visible
+                    ease: 'power2.inOut',
+                    onStart: function() {
+                        $('#mobile-nav').css('display', 'block'); // Set display block at start
+                    }
+                });
+            });
+
+            // Function to close the mobile nav
+            $('.close-mobile-menu').on('click', function() {
+                gsap.to('#mobile-nav', {
+                    duration: 0.5,
+                    y: '-100%', // Slide up out of view
+                    opacity: 0, // Make it invisible
+                    ease: 'power2.inOut',
+                    onComplete: function() {
+                        $('#mobile-nav').css('display', 'none'); // Hide after animation
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navButton = document.querySelector('.nav-button');
             const sidebar = document.querySelector('.sidebar');
+            const mobileLink = document.querySelector('.contact-link');
             const backdrop = document.querySelector('.backdrop');
             const closeSidebar = document.querySelector('.close-sidebar');
 
-            navButton.addEventListener('click', () => {
-                // Slide in the sidebar from the right
+            function openSidebar() {
+                let sidebarXValue = '-40vw'; // Default value for larger screens
+
+                // Check for tablet and mobile screen sizes
+                if (window.innerWidth <= 768) {
+                    sidebarXValue = '-80vw'; // Slide in -80vw for mobile/tablet
+                }
+
+                // Slide in the sidebar
                 gsap.to(sidebar, {
-                    x: '-40vw',
+                    x: sidebarXValue,
                     duration: 0.4,
                     ease: 'power2.out'
                 });
 
                 // Show the backdrop and apply blur
                 backdrop.classList.add('active');
-            });
+            }
 
-            // Close the sidebar when clicking on the close icon
-            closeSidebar.addEventListener('click', () => {
-                // Slide out the sidebar to the right
+            function closeSidebarFunc() {
+                // Slide out the sidebar to the right (reset position)
                 gsap.to(sidebar, {
                     x: '0',
                     duration: 0.4,
@@ -101,21 +177,21 @@
 
                 // Hide the backdrop and remove blur
                 backdrop.classList.remove('active');
-            });
+            }
 
-            // Close the sidebar when clicking outside of it (on the backdrop)
-            backdrop.addEventListener('click', () => {
-                // Slide out the sidebar to the right
-                gsap.to(sidebar, {
-                    x: '0',
-                    duration: 0.4,
-                    ease: 'power2.out'
-                });
+            // Open sidebar on nav button click
+            navButton.addEventListener('click', openSidebar);
 
-                // Hide the backdrop and remove blur
-                backdrop.classList.remove('active');
-            });
+            // Open sidebar on mobile link click
+            mobileLink.addEventListener('click', openSidebar);
+
+            // Close sidebar on close icon click
+            closeSidebar.addEventListener('click', closeSidebarFunc);
+
+            // Close sidebar when clicking on the backdrop
+            backdrop.addEventListener('click', closeSidebarFunc);
         });
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const closeIcon = document.querySelector('.close-sidebar');
