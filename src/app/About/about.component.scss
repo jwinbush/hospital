@@ -51,6 +51,10 @@ $pink: #F3797E;
         background-position: bottom;
         border-radius: 0px 0px 10px 10px;
         overflow: hidden;
+        @media (max-width: 768px) {
+            height: 40vh;
+            // Adjust the max-width based on your desired breakpoint
+        }
         &::before {
             height: 60vh;
             content: '';
@@ -63,6 +67,10 @@ $pink: #F3797E;
             /* Color with low opacity */
             z-index: 1;
             /* Ensures the overlay is above the image */
+            @media (max-width: 768px) {
+                height: 40vh;
+                // Adjust the max-width based on your desired breakpoint
+            }
         }
         .hero-content {
             color: white;
@@ -414,11 +422,21 @@ $pink: #F3797E;
         height: 65vh;
         width: 100vw;
         padding-left: 7vw;
+        @media (max-width: 425px) {
+            flex-direction: column;
+            padding: 10vh 0;
+            max-width: 90vw;
+            margin: 0 auto;
+            height: 75vh;
+        }
         .launch-left {
             padding-top: 13vh;
             padding-bottom: 13vh;
             height: 100%;
             width: 13vw;
+            @media (max-width: 425px) {
+                display: none;
+            }
             .launch-title p {
                 font-size: 17px;
                 font-weight: 300;
@@ -434,7 +452,22 @@ $pink: #F3797E;
             display: flex;
             z-index: 2;
             color: $blue;
+            @media (max-width: 425px) {
+                width: 100%;
+                padding: 0;
+            }
             h2 {
+                @media (max-width: 768px) {
+                    font-size: 36px;
+                    line-height: 44px;
+                    font-weight: 600;
+                    // Adjust the max-width based on your desired breakpoint
+                }
+                @media (max-width: 425px) {
+                    font-size: 34px;
+                    line-height: 34px;
+                    padding-bottom: 5vh;
+                }
                 font-size: 50px;
                 font-weight: 600;
                 line-height: 54px;
@@ -450,6 +483,13 @@ $pink: #F3797E;
             flex-direction: column;
             justify-content: space-evenly;
             display: flex;
+            @media (max-width: 768px) {
+                padding: 13vh 5vw 4vh 5vw;
+            }
+            @media (max-width: 425px) {
+                width: 100%;
+                padding: 0;
+            }
             .info-group {
                 display: flex;
                 flex-direction: column;
@@ -460,6 +500,10 @@ $pink: #F3797E;
                     display: flex;
                     flex-direction: column;
                     h2 {
+                        @media (max-width: 768px) {
+                            font-size: 32px;
+                            // Adjust the max-width based on your desired breakpoint
+                        }
                         font-size: 42px;
                         font-weight: 600;
                         padding: 0;
@@ -475,6 +519,9 @@ $pink: #F3797E;
     }
     .mission-wrapper {
         padding: 13vh 0 20vh 0;
+        @media (max-width: 768px) {
+            padding: 10vh 0 10vh 0;
+        }
         .photo-bg {
             border-radius: 10px 10px 0px 0px;
             width: 100%;
@@ -484,12 +531,24 @@ $pink: #F3797E;
             background-size: cover;
             background-position: center;
             background-image: url('https://images.pexels.com/photos/5452221/pexels-photo-5452221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            @media (max-width: 768px) {
+                height: 50vh;
+            }
             h2 {
                 font-size: 44px;
                 font-weight: 600;
                 padding: 1em;
                 color: #fff;
                 text-align: right;
+                @media (max-width: 768px) {
+                    font-size: 34px;
+                }
+                @media (max-width: 425px) {
+                    font-size: 28px;
+                    width: 100%;
+                    padding: 1em 0;
+                    text-align: center;
+                }
             }
         }
         .mission-vision-wrapper {
@@ -499,6 +558,9 @@ $pink: #F3797E;
             flex-direction: row;
             width: 100%;
             margin: 0 auto;
+            @media (max-width: 768px) {
+                height: 40vh;
+            }
             .mission {
                 border-radius: 0px 0px 0px 10px;
                 padding: 2em;
@@ -510,11 +572,20 @@ $pink: #F3797E;
                 h2 {
                     font-size: 44px;
                     font-weight: 600;
+                    @media (max-width: 768px) {
+                        font-size: 34px;
+                    }
+                    @media (max-width: 425px) {
+                        font-size: 28px;
+                    }
                 }
                 img {
                     margin: 0 auto;
                     max-width: 10vw;
                     width: 100%;
+                    @media (max-width: 425px) {
+                        display: none;
+                    }
                 }
                 p {
                     font-size: 16px;
@@ -531,11 +602,20 @@ $pink: #F3797E;
                 h2 {
                     font-size: 44px;
                     font-weight: 600;
+                    @media (max-width: 768px) {
+                        font-size: 34px;
+                    }
+                    @media (max-width: 425px) {
+                        font-size: 28px;
+                    }
                 }
                 img {
                     margin: 0 auto;
                     max-width: 10vw;
                     width: 100%;
+                    @media (max-width: 425px) {
+                        display: none;
+                    }
                 }
                 p {
                     font-size: 16px;
@@ -545,12 +625,18 @@ $pink: #F3797E;
     }
     .our-team-wrapper {
         padding-bottom: 20vh;
+        @media (max-width: 425px) {
+            padding-bottom: 10vh;
+        }
         h2 {
             max-width: 86vw;
             margin: 0 auto;
             font-size: 44px;
             padding-bottom: 8vh;
             font-weight: 600;
+            @media (max-width: 768px) {
+                font-size: 34px;
+            }
         }
         .our-team {
             max-width: 86vw;
@@ -561,6 +647,15 @@ $pink: #F3797E;
             justify-content: space-between;
             align-items: center;
             height: 100%;
+            @media (max-width: 425px) {
+                display: grid;
+                grid-template-columns: repeat(2, 45vw);
+                row-gap: 3vh;
+                column-gap: 1vh;
+                width: 100%;
+                margin: 0 auto;
+                /* Optional: Adds space between the columns */
+            }
             .member {
                 text-align: left;
                 display: flex;
@@ -569,12 +664,18 @@ $pink: #F3797E;
                 .profile {
                     width: 18vw;
                     padding-bottom: 1vh;
+                    @media (max-width: 425px) {
+                        width: 30vw;
+                    }
                 }
                 h3 {
                     margin: 0;
                     font-size: 30px;
                     font-weight: 600;
                     padding-bottom: 10px;
+                    @media (max-width: 768px) {
+                        font-size: 24px;
+                    }
                 }
                 p {
                     margin: 0;
@@ -584,6 +685,9 @@ $pink: #F3797E;
                 .social {
                     width: 2vw;
                     border-radius: 50%;
+                    @media (max-width: 425px) {
+                        width: 8vw;
+                    }
                 }
             }
         }

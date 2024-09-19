@@ -14,6 +14,10 @@ $pink: #F3797E;
         display: flex;
         justify-content: space-between;
         text-decoration: none;
+        @media (max-width: 425px) {
+            flex-direction: column;
+            padding-bottom: 6vh;
+        }
         .footer-logo {
             color: white;
             display: flex;
@@ -38,11 +42,18 @@ $pink: #F3797E;
                 justify-content: flex-start;
                 text-align: left;
                 text-decoration: none;
+                @media (max-width: 425px) {
+                    padding: 0;
+                    margin-top: 2vh;
+                }
                 .link-header {
                     color: rgba(255, 255, 255, 0.689);
                     font-size: 16px;
                     list-style-type: none;
                     padding-bottom: 2vh;
+                    @media (max-width: 425px) {
+                        padding-bottom: 0;
+                    }
                 }
                 .link {
                     text-decoration: none;
@@ -78,6 +89,9 @@ $pink: #F3797E;
                 font-size: 16px;
                 list-style-type: none;
                 padding-bottom: 2vh;
+                @media (max-width: 425px) {
+                    padding: 0;
+                }
             }
             .icons {
                 column-gap: 6px;

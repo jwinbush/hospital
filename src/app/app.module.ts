@@ -47,6 +47,9 @@ import { ProfileHospitalComponent } from './Hospitals/profile-hospital/profile-h
 import { ErrorPageComponent } from './Utilities/error-page/error-page.component';
 
 
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -109,10 +112,14 @@ const routes: Routes = [
     MatIconModule,
     MatListModule,
     RouterModule.forRoot(routes)
+ 
+    
+
   ],
   exports: [RouterModule],
 
   providers: [SharingService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

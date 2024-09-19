@@ -41,8 +41,12 @@ $pink: #F3797E;
 }
 
 .services {
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0vh 0vw;
+    @media (max-width: 768px) {
+        overflow-x: hidden;
+        // Adjust the max-width based on your desired breakpoint
+    }
     .services-hero {
         height: 60vh;
         background-image: url("../.../../../assets/images/pexels-gdtography-277628-911738.jpg");
@@ -51,6 +55,10 @@ $pink: #F3797E;
         background-position: center;
         border-radius: 0px 0px 10px 10px;
         overflow: hidden;
+        @media (max-width: 768px) {
+            height: 40vh;
+            // Adjust the max-width based on your desired breakpoint
+        }
         &::before {
             height: 60vh;
             content: '';
@@ -63,6 +71,10 @@ $pink: #F3797E;
             /* Color with low opacity */
             z-index: 1;
             /* Ensures the overlay is above the image */
+            @media (max-width: 768px) {
+                height: 40vh;
+                // Adjust the max-width based on your desired breakpoint
+            }
         }
         .hero-content {
             color: white;
@@ -416,6 +428,10 @@ $pink: #F3797E;
         margin: 0 auto;
         max-width: 86vw;
         align-items: center;
+        @media (max-width: 425px) {
+            flex-direction: column;
+            padding-bottom: 5vh;
+        }
         .left-side {
             //if right side is commented out set to 50vw
             width: 40%;
@@ -425,8 +441,19 @@ $pink: #F3797E;
                 line-height: 78px;
                 font-weight: 600;
             }
+            @media (max-width: 768px) {
+                width: 60%;
+            }
+            @media (max-width: 425px) {
+                width: 90vw;
+                overflow-y: hidden;
+                margin: 0 auto;
+                text-align: center;
+                padding: 2vh 0;
+            }
         }
         .right-side {
+            overflow: hidden;
             border-radius: 10px;
             height: 60vh;
             padding: 0 2vw;
@@ -437,7 +464,14 @@ $pink: #F3797E;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow-y: auto;
+            @media (max-width: 768px) {
+                width: 40%;
+            }
+            @media (max-width: 425px) {
+                width: 100%;
+                margin: 0;
+                padding: 30px;
+            }
             h3 {
                 font-weight: 400;
                 font-size: 26px;
@@ -457,6 +491,9 @@ $pink: #F3797E;
                 z-index: 1;
                 max-width: 8vw;
                 width: 100%;
+                @media (max-width: 425px) {
+                    max-width: 30vw
+                }
                 /* Adjust values as needed */
                 /* Adjust values as needed */
             }
@@ -471,6 +508,10 @@ $pink: #F3797E;
             &::-webkit-scrollbar {
                 display: none;
                 /* Chrome, Safari, and Opera */
+            }
+            @media (max-width: 425px) {
+                display: flex;
+                flex-direction: row;
             }
             .item {
                 width: 100%;
@@ -492,7 +533,21 @@ $pink: #F3797E;
                     &:hover {
                         background-color: #e3f6ff;
                     }
+                    @media (max-width: 768px) {
+                        font-size: 18px;
+                    }
+                    @media (max-width: 425px) {
+                        line-height: 18px;
+                        width: 50vw;
+                        padding: 20px;
+                        text-align: center;
+                    }
                 }
+            }
+            @media (max-width: 425px) {
+                height: auto;
+                max-width: 90vw;
+                width: 100%;
             }
         }
         .launch-right {

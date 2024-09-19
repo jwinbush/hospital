@@ -41,16 +41,21 @@ $pink: #F3797E;
 }
 
 .careers {
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0vh 0vw;
     .careers-hero {
-        height: 100vh;
-        background-image: url("../.../../../assets/images/pexels-gdtography-277628-911738.jpg");
+        height: 110vh;
+        background-image: url("../../assets/images/pexels-gdtography-277628-911738.jpg");
         background-size: cover;
         background-blend-mode: overlay;
         background-position: bottom;
+        overflow: hidden;
+        @media (max-width: 768px) {
+            height: 50vh;
+            // Adjust the max-width based on your desired breakpoint
+        }
         &::before {
-            height: 100vh;
+            height: 110vh;
             content: '';
             position: absolute;
             top: 0;
@@ -61,6 +66,10 @@ $pink: #F3797E;
             /* Color with low opacity */
             z-index: 1;
             /* Ensures the overlay is above the image */
+            @media (max-width: 768px) {
+                height: 50vh;
+                // Adjust the max-width based on your desired breakpoint
+            }
         }
         &-content {
             z-index: 2;
@@ -85,28 +94,61 @@ $pink: #F3797E;
                         font-weight: 600;
                         color: #45c4ff;
                     }
+                    @media (max-width: 768px) {
+                        font-size: 60px;
+                        // Adjust the max-width based on your desired breakpoint
+                    }
+                    @media (max-width: 425px) {
+                        font-size: 40px;
+                        line-height: 40px;
+                    }
                 }
                 p {
                     font-size: 20px;
                     line-height: 30px;
                     font-weight: 300;
+                    @media (max-width: 768px) {
+                        font-size: 18px;
+                        // Adjust the max-width based on your desired breakpoint
+                    }
                 }
             }
             .left-side {
+                margin-top: 12vh;
+                @media (max-width: 768px) {
+                    display: none;
+                }
                 width: 50vw;
                 img {
                     max-width: 40vw;
                     width: 100%;
                 }
                 .image-container {
+                    justify-content: flex-start;
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     align-items: center;
-                    height: 80vh;
+                    column-gap: 0.6vw;
                     .expand-image {
                         width: 14vw;
                         overflow: hidden;
                         opacity: 0;
+                    }
+                    .left {
+                        row-gap: 1vh;
+                        display: flex;
+                        flex-direction: column;
+                        img {
+                            border-radius: 8px;
+                        }
+                    }
+                    .right {
+                        row-gap: 1vh;
+                        display: flex;
+                        flex-direction: column;
+                        img {
+                            border-radius: 8px;
+                        }
                     }
                 }
             }
@@ -119,6 +161,10 @@ $pink: #F3797E;
         height: 100vh;
         background-color: $blue;
         color: white;
+        @media (max-width: 425px) {
+            padding-top: 8vh;
+            padding-bottom: 8vh;
+        }
         .wave img {
             position: absolute;
             width: 70%;
@@ -150,6 +196,11 @@ $pink: #F3797E;
                 z-index: 2;
                 height: 80vh;
                 color: white;
+                @media (max-width: 425px) {
+                    height: auto;
+                    width: 100%;
+                    text-align: center;
+                }
                 .cases {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
@@ -196,9 +247,14 @@ $pink: #F3797E;
                             z-index: 1;
                             max-width: 8vw;
                             width: 100%;
-                            /* Adjust values as needed */
-                            /* Adjust values as needed */
+                            @media (max-width: 425px) {
+                                max-width: 20vw;
+                            }
                         }
+                    }
+                    @media (max-width: 425px) {
+                        display: flex;
+                        flex-direction: column;
                     }
                 }
                 h2.use-cases-title {
@@ -209,6 +265,9 @@ $pink: #F3797E;
                     margin: 0;
                     span {
                         color: #03a9f4;
+                    }
+                    @media (max-width: 425px) {
+                        margin-bottom: 4vh;
                     }
                 }
                 div.use-cases-anchors {
@@ -234,6 +293,9 @@ $pink: #F3797E;
                         &:hover {
                             opacity: 1;
                         }
+                    }
+                    @media (max-width: 425px) {
+                        display: none;
                     }
                 }
             }
@@ -375,6 +437,11 @@ $pink: #F3797E;
         width: 100vw;
         padding-left: 7vw;
         align-items: center;
+        @media (max-width: 425px) {
+            flex-direction: column;
+            height: auto;
+            padding: 8vh 0;
+        }
         .left-side {
             //if right side is commented out set to 50vw
             width: 50vw;
@@ -384,6 +451,10 @@ $pink: #F3797E;
                 line-height: 78px;
                 font-weight: 600;
             }
+            @media (max-width: 425px) {
+                width: 100%;
+                text-align: center;
+            }
         }
         .jobs {
             width: 100%;
@@ -391,6 +462,9 @@ $pink: #F3797E;
             margin: 0 auto;
             overflow: hidden;
             border-bottom: 0!important;
+            @media (max-width: 425px) {
+                max-width: 90vw;
+            }
             .item {
                 width: 100%;
                 max-width: 53vw;
@@ -399,6 +473,10 @@ $pink: #F3797E;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                @media (max-width: 425px) {
+                    max-width: 90vw;
+                    margin: 0 auto;
+                }
                 .job-header {
                     margin: 0;
                     border-radius: 10px;

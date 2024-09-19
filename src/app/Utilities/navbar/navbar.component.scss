@@ -70,14 +70,6 @@
             @media (max-width: 768px) {
                 display: none;
                 // Adjust the max-width based on your desired breakpoint
-                h2 {
-                    font-size: 40px; // Smaller font size for mobile
-                    line-height: 46px; // Adjusted line height for mobile
-                }
-                p {
-                    font-size: 16px; // Smaller font size for mobile
-                    line-height: 24px; // Adjusted line height for mobile
-                }
             }
         }
         &-logo {
@@ -89,6 +81,58 @@
                     font-size: 26px;
                     font-weight: 600;
                 }
+            }
+        }
+        .navbar-toggler {
+            z-index: 1010;
+        }
+    }
+    
+    #mobile-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        display: none;
+        /* Initially hidden */
+        z-index: 1000;
+        overflow: hidden;
+        .navbar-collapse {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            li {
+                list-style-type: none;
+                .link {
+                    text-decoration: none;
+                    font-size: 60px;
+                    line-height: 60px;
+                    color: #0d2851;
+                    .contact-link {
+                        display: hidden;
+                        @media (max-width: 425px) {
+                            display: block;
+                            // Adjust the max-width based on your desired breakpoint
+                        }
+                    }
+                }
+            }
+        }
+        .navbar-toggler {
+            display: block;
+            z-index: 1010;
+        }
+        .close-mobile-menu {
+            position: absolute;
+            top: 23px;
+            right: 23px;
+            cursor: pointer;
+            &:hover {
+                transform: rotate(360deg); // Rotate 360 degrees on hover
             }
         }
     }
@@ -150,6 +194,10 @@
             transition: ease-in-out 0.3s;
             transform: scale(0.95);
         }
+        @media (max-width: 768px) {
+            display: none;
+            // Adjust the max-width based on your desired breakpoint
+        }
     }
     
     .sidebar {
@@ -164,6 +212,10 @@
         background-image: url('../../../assets/images/pexels-photo-23510864.webp');
         z-index: 1002;
         transition: transform 0.4s ease;
+        @media (max-width: 768px) {
+            right: -80vw; // Hidden initially
+            width: 80vw;
+        }
         .sidebar-content {
             height: 100%;
             display: flex;
@@ -245,6 +297,9 @@
                 transition: ease-in-out 0.5s;
                 &:hover {
                     transform: scale(0.95);
+                }
+                @media (max-width: 768px) {
+                    max-width: 20vw;
                 }
             }
         }
