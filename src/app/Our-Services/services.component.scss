@@ -98,6 +98,11 @@ $pink: #F3797E;
                     line-height: 78px;
                     font-weight: 600;
                 }
+                @media (max-width: 375px) {
+                    width: 100%;
+                    text-align: center;
+                    font-weight: 500;
+                }
             }
         }
     }
