@@ -1,0 +1,26 @@
+<app-page-hero
+    eyebrow="Patient Resources"
+    title="Health Library"
+    intro="Clear, trustworthy information to help you understand your health. Always talk with your provider about your own care."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="form-field library-filter">
+            <label for="topic">Filter by topic</label>
+            <select id="topic" class="input" [(ngModel)]="category">
+                <option value="">All topics</option>
+                <option *ngFor="let topic of categories" [value]="topic">{{ topic }}</option>
+            </select>
+        </div>
+
+        <div class="grid grid-3">
+            <article *ngFor="let article of articles" class="card">
+                <span class="tag">{{ article.category }}</span>
+                <h2 class="card-title">{{ article.title }}</h2>
+                <p class="card-text">{{ article.summary }}</p>
+            </article>
+        </div>
+    </div>
+</section>

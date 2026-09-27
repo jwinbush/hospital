@@ -1,0 +1,35 @@
+<app-page-hero
+    eyebrow="Patient Portal"
+    title="Your health, online, anytime"
+    intro="The Serenity Health Patient Portal lets you message your care team, see results, manage appointments and more.">
+    <a routerLink="/patient-login" class="btn btn-primary">Log In</a>
+    <a routerLink="/patient-signup" class="btn btn-tertiary">Create an Account</a>
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="section-header">
+            <h2 class="heading-lg">What you can do in the portal</h2>
+        </div>
+
+        <div class="grid grid-3">
+            <div *ngFor="let feature of features" class="card">
+                <span class="card-icon"><i [class]="feature.icon" aria-hidden="true"></i></span>
+                <h3 class="card-title">{{ feature.title }}</h3>
+                <p class="card-text">{{ feature.text }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container site-container--narrow">
+        <div class="notice">
+            <p>
+                <strong>Need help logging in?</strong> Call our portal support line at
+                <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a>. The portal is for non-urgent needs —
+                for emergencies, call 911.
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,109 @@
+<app-page-hero
+    eyebrow="Book an Appointment"
+    title="Request an appointment"
+    intro="Tell us what you need and when you’re available. Our scheduling team will call or email to confirm your time.">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container site-container--narrow">
+
+        <div class="notice" *ngIf="submitted; else bookingForm">
+            <p>
+                <strong>Thank you, {{ request.firstName }}.</strong> We received your request and will contact you
+                within one business day to confirm your appointment.
+            </p>
+            <p>Need care sooner? Call us at <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a>.</p>
+        </div>
+
+        <ng-template #bookingForm>
+            <form #form="ngForm" class="form" (ngSubmit)="submit(form)" novalidate>
+
+                <!-- Visit -->
+                <h2 class="heading-sm">Your visit</h2>
+
+                <fieldset class="form-field">
+                    <legend>Are you a new or returning patient?</legend>
+                    <div class="choice-group">
+                        <label><input type="radio" name="patientType" value="new" [(ngModel)]="request.patientType"> New patient</label>
+                        <label><input type="radio" name="patientType" value="returning" [(ngModel)]="request.patientType"> Returning patient</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="service">Service *</label>
+                        <select id="service" name="service" class="input" required [(ngModel)]="request.service">
+                            <option value="" disabled>Choose a service</option>
+                            <option *ngFor="let service of services" [value]="service.slug">{{ service.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="location">Location *</label>
+                        <select id="location" name="location" class="input" required [(ngModel)]="request.location">
+                            <option value="" disabled>Choose a location</option>
+                            <option *ngFor="let location of locations" [value]="location.slug">{{ location.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="provider">Preferred provider</label>
+                        <select id="provider" name="provider" class="input" [(ngModel)]="request.provider">
+                            <option value="">First available</option>
+                            <option *ngFor="let provider of providers" [value]="provider.slug">{{ providerDisplayName(provider) }}</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="date">Preferred date</label>
+                        <input id="date" name="date" type="date" class="input" [(ngModel)]="request.date">
+                    </div>
+                    <div class="form-field is-full">
+                        <label for="timeOfDay">Preferred time of day</label>
+                        <select id="timeOfDay" name="timeOfDay" class="input" [(ngModel)]="request.timeOfDay">
+                            <option *ngFor="let time of timesOfDay" [value]="time">{{ time }}</option>
+                        </select>
+                    </div>
+                    <div class="form-field is-full">
+                        <label for="reason">Reason for visit *</label>
+                        <textarea id="reason" name="reason" class="input" required [(ngModel)]="request.reason"
+                                  placeholder="Briefly describe what you’d like to be seen for"></textarea>
+                    </div>
+                </div>
+
+                <!-- Patient -->
+                <h2 class="heading-sm">Your information</h2>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="firstName">First name *</label>
+                        <input id="firstName" name="firstName" class="input" required [(ngModel)]="request.firstName">
+                    </div>
+                    <div class="form-field">
+                        <label for="lastName">Last name *</label>
+                        <input id="lastName" name="lastName" class="input" required [(ngModel)]="request.lastName">
+                    </div>
+                    <div class="form-field">
+                        <label for="dateOfBirth">Date of birth *</label>
+                        <input id="dateOfBirth" name="dateOfBirth" type="date" class="input" required [(ngModel)]="request.dateOfBirth">
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone *</label>
+                        <input id="phone" name="phone" type="tel" class="input" required [(ngModel)]="request.phone">
+                    </div>
+                    <div class="form-field is-full">
+                        <label for="email">Email *</label>
+                        <input id="email" name="email" type="email" class="input" required email [(ngModel)]="request.email">
+                    </div>
+                </div>
+
+                <p class="form-error" *ngIf="form.submitted && form.invalid">Please fill in all required fields (*).</p>
+
+                <div class="notice">
+                    <p><strong>Having an emergency?</strong> Don’t use this form. Call 911 or go to the nearest emergency room.</p>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg">Request Appointment</button>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+</section>

@@ -1,0 +1,127 @@
+<!-- Hero -->
+<section class="hero">
+    <!-- Decorative wave along the bottom, echoing the logo's swoosh -->
+    <svg class="hero__wave" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="hero__wave-back" d="M0 80 C 360 0, 1080 160, 1440 60 V 200 H 0 Z"/>
+        <path class="hero__wave-front" d="M0 140 C 360 60, 1080 220, 1440 120 V 200 H 0 Z"/>
+    </svg>
+
+    <div class="hero__inner">
+        <div class="hero__content">
+            <h1 class="hero__title">Compassionate care, close to home</h1>
+            <p class="hero__text">
+                Serenity Health brings primary care, specialty services and mental health support together,
+                so you and your family can get the care you need in one place.
+            </p>
+            <div class="hero__actions">
+                <a routerLink="/book-appointment" class="btn btn-primary btn-lg">Book an Appointment</a>
+                <a routerLink="/find-a-doctor" class="btn btn-tertiary btn-lg">Find a Doctor</a>
+            </div>
+        </div>
+
+        <!-- Photo with a sun circle behind it, like the logo -->
+        <div class="hero__media">
+            <img *ngFor="let image of heroImages; let i = index"
+                 class="hero__image" [class.is-active]="i === heroIndex"
+                 [src]="image" alt="" width="2000" height="1333">
+        </div>
+    </div>
+</section>
+
+
+<!-- Quick links -->
+<section class="quick-links">
+    <div class="site-container">
+        <ul class="quick-links__list">
+            <li *ngFor="let link of quickLinks">
+                <a [routerLink]="link.path" class="quick-links__item">
+                    <i [class]="link.icon" aria-hidden="true"></i>
+                    {{ link.label }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- Services -->
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Our Services</span>
+            <h2 class="heading-lg">Care for every part of your health</h2>
+            <p class="section-intro">From everyday check-ups to long-term support, our teams work together around you.</p>
+        </div>
+
+        <div class="grid grid-3">
+            <a *ngFor="let service of services" [routerLink]="['/services', service.slug]" class="card">
+                <span class="card-icon"><i [class]="service.icon" aria-hidden="true"></i></span>
+                <h3 class="card-title">{{ service.name }}</h3>
+                <p class="card-text">{{ service.summary }}</p>
+                <span class="card-link">Learn more</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Conditions -->
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Conditions & Treatments</span>
+            <h2 class="heading-lg">Find care for your condition</h2>
+            <p class="section-intro">Learn about common conditions and how our providers can help.</p>
+        </div>
+
+        <div class="grid grid-4">
+            <a *ngFor="let category of conditions" [routerLink]="['/conditions', category.slug]" class="card">
+                <span class="card-icon"><i [class]="category.icon" aria-hidden="true"></i></span>
+                <h3 class="card-title">{{ category.name }}</h3>
+            </a>
+        </div>
+
+        <a routerLink="/conditions" class="btn btn-tertiary home__more">View all conditions</a>
+    </div>
+</section>
+
+
+<!-- Find a doctor -->
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="split">
+            <div>
+                <span class="eyebrow">Find a Doctor</span>
+                <h2 class="heading-lg">Providers who take time to listen</h2>
+                <p class="body-text">
+                    Search our doctors, nurse practitioners and counselors by specialty, location or language,
+                    and see who is accepting new patients.
+                </p>
+                <a routerLink="/find-a-doctor" class="btn btn-primary">Search Providers</a>
+            </div>
+            <img class="split__image" src="assets/images/health.jpg" alt="A doctor talking with a patient">
+        </div>
+    </div>
+</section>
+
+
+<!-- Locations -->
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Locations</span>
+            <h2 class="heading-lg">Clinics near you</h2>
+        </div>
+
+        <div class="grid grid-3">
+            <div *ngFor="let location of locations" class="card">
+                <h3 class="card-title">{{ location.name }}</h3>
+                <p class="card-text">{{ location.address }}<br>{{ location.city }}</p>
+                <a [href]="'tel:' + location.phone" class="card-link">{{ location.phone }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<app-cta-band></app-cta-band>

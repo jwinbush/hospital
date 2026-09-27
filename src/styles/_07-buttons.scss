@@ -1,0 +1,140 @@
+/* ==========================================================================
+   07. BUTTONS
+   --------------------------------------------------------------------------
+   Every button or button-style link gets .btn plus ONE color variant.
+   A size class is optional. Every .btn shows a chevron after its label.
+
+     <a href="/about" class="btn btn-primary">Learn More</a>
+     <button type="button" class="btn btn-tertiary btn-sm">Cancel</button>
+
+   Variants
+     .btn-primary     Solid teal — the main call to action
+     .btn-secondary   Solid navy — a strong second action
+     .btn-tertiary    Navy outline — a quiet action on light backgrounds
+     .btn-light       White outline — any action on dark backgrounds
+
+   Sizes
+     .btn-sm          Smaller padding and text
+     .btn-lg          Larger padding and text
+     .btn-block       Full width of its container
+   ========================================================================== */
+
+
+/* ---- Base ---- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-medium);
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color var(--transition), color var(--transition),
+                border-color var(--transition), transform var(--transition);
+
+    // chevron after the label; drawn with a mask so it takes the text color
+    &::after {
+        content: "";
+        flex-shrink: 0;
+        width: 0.5em;
+        height: 0.8em;
+        background-color: currentColor;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 16'%3E%3Cpath d='M2 2l6 6-6 6' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+        transition: transform var(--transition);
+    }
+
+    &:hover {
+        text-decoration: none;
+        transform: scale(0.97);
+
+        &::after {
+            transform: translateX(0.2em); // nudge the chevron forward
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-teal);
+        outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+
+/* ---- Variants ---- */
+
+.btn-primary {
+    color: var(--color-white);
+    background-color: var(--color-teal);
+    border-color: var(--color-teal);
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
+    }
+}
+
+.btn-secondary {
+    color: var(--color-white);
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-teal-dark);
+        border-color: var(--color-teal-dark);
+    }
+}
+
+.btn-tertiary {
+    color: var(--color-navy);
+    background-color: transparent;
+    border-color: var(--color-navy);
+
+    &:hover {
+        color: var(--color-white);
+        background-color: var(--color-navy);
+    }
+}
+
+.btn-light {
+    color: var(--color-white);
+    background-color: transparent;
+    border-color: var(--color-white);
+
+    &:hover {
+        color: var(--color-teal-dark);
+        background-color: var(--color-white);
+    }
+}
+
+
+/* ---- Sizes ---- */
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--fs-sm);
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: var(--fs-lg);
+}
+
+.btn-block {
+    width: 100%;
+}

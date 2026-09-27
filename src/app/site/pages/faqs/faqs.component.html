@@ -1,0 +1,22 @@
+<app-page-hero
+    eyebrow="Patient Resources"
+    title="Frequently asked questions"
+    intro="Quick answers about appointments, insurance, test results and more."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container site-container--narrow">
+        <div class="accordion">
+            <details *ngFor="let faq of faqs; let first = first" [open]="first">
+                <summary>{{ faq.question }}</summary>
+                <p>{{ faq.answer }}</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<app-cta-band
+    title="Still have questions?"
+    text="Our team is happy to help. Send us a message or give us a call.">
+</app-cta-band>

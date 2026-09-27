@@ -1,120 +1,124 @@
-$blue: #0d2851;
-$purple: #4747A1;
-$lpurple: #7978E9;
-$pink: #F3797E;
-#footer {
-    background-color: $blue;
-    border-radius: 10px 10px 0px 0px;
-    .footer-wrapper {
-        box-shadow: 0 -1px #d2e3fd71 inset;
-        padding: 6vh 0vw 10vh 0vw;
-        margin: 0 auto;
-        max-width: 86vw;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+/* ==========================================================================
+   SITE FOOTER
+   ========================================================================== */
+
+.site-footer {
+    color: var(--color-white);
+    background-color: var(--color-teal-dark);
+
+    a {
+        color: rgba(255, 255, 255, 0.85);
         text-decoration: none;
-        @media (max-width: 425px) {
-            flex-direction: column;
-            padding-bottom: 6vh;
-        }
-        .footer-logo {
-            color: white;
-            display: flex;
-            align-items: flex-start;
-            column-gap: 0.6vw;
-            p {
-                padding: 0;
-                margin: 0;
-                font-size: 12px;
-                font-weight: 300;
-                span {
-                    font-size: 26px;
-                    font-weight: 600;
-                }
-            }
-        }
-        .footer-company,
-        .footer-solutions {
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                text-align: left;
-                text-decoration: none;
-                @media (max-width: 425px) {
-                    padding: 0;
-                    margin-top: 2vh;
-                }
-                .link-header {
-                    color: rgba(255, 255, 255, 0.689);
-                    font-size: 16px;
-                    list-style-type: none;
-                    padding-bottom: 2vh;
-                    @media (max-width: 425px) {
-                        padding-bottom: 0;
-                    }
-                }
-                .link {
-                    text-decoration: none;
-                    color: white;
-                    font-weight: 500;
-                    justify-content: center;
-                    text-align: center;
-                    position: relative;
-                    display: inline-block;
-                    font-size: 16px;
-                    padding: 0.8vh 0;
-                    &::after {
-                        z-index: 3;
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        height: 0.8px;
-                        /* Adjust height as needed */
-                        width: 0;
-                        background-color: #378fec;
-                        /* Adjust color as needed */
-                        transition: width 0.5s ease;
-                    }
-                }
-            }
-        }
-        .footer-social {
-            display: flex;
-            flex-direction: column;
-            .link-header {
-                color: rgba(255, 255, 255, 0.689);
-                font-size: 16px;
-                list-style-type: none;
-                padding-bottom: 2vh;
-                @media (max-width: 425px) {
-                    padding: 0;
-                }
-            }
-            .icons {
-                column-gap: 6px;
-                img {
-                    padding-right: 6px;
-                    height: 3vh;
-                    filter: invert(1);
-                }
-            }
+
+        &:hover {
+            color: var(--color-white);
+            text-decoration: underline;
         }
     }
-    .privacy-policy {
-        max-width: 86vw;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        color: white;
-        align-items: center;
+
+
+    /* ---- Main area: brand on the left, link columns on the right ---- */
+
+    &__main {
+        display: grid;
+        gap: var(--space-8);
+        max-width: var(--container);
         margin: 0 auto;
-        height: auto;
-        p {
-            padding: 3vh 0;
-            margin: 0;
+        padding: var(--space-9) var(--gutter) var(--space-8);
+
+        @media (min-width: 64rem) {
+            grid-template-columns: 18rem 1fr;
         }
+    }
+
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-5);
+    }
+
+    &__logo img {
+        display: block;
+        width: 11.25rem;
+        height: auto;
+        filter: brightness(0) invert(1); // white version of the logo for the dark footer
+    }
+
+    &__tagline {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: var(--lh-body);
+    }
+
+    &__contact {
+        display: grid;
+        gap: var(--space-2);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        i {
+            width: 1.25rem;
+            color: var(--color-teal-light);
+        }
+    }
+
+
+    /* ---- Sitemap columns ---- */
+
+    &__nav {
+        display: grid;
+        gap: var(--space-7);
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+
+    &__heading {
+        margin-bottom: var(--space-4);
+        font-size: var(--fs-base);
+        font-weight: var(--fw-bold);
+
+        a {
+            color: var(--color-white);
+        }
+    }
+
+    &__links {
+        display: grid;
+        gap: var(--space-3);
+        margin: 0;
+        padding: 0;
+        font-size: var(--fs-sm);
+        list-style: none;
+    }
+
+
+    /* ---- Bottom bar ---- */
+
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-4);
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: var(--space-5) var(--gutter);
+        font-size: var(--fs-sm);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+        p {
+            margin: 0;
+            font-size: inherit;
+        }
+    }
+
+    &__legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 }

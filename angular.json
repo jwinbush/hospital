@@ -37,7 +37,7 @@
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.css"
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     },
@@ -75,10 +75,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "hospital:build:production"
+                            "buildTarget": "hospital:build:production"
                         },
                         "development": {
-                            "browserTarget": "hospital:build:development"
+                            "buildTarget": "hospital:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "hospital:build"
+                        "buildTarget": "hospital:build"
                     }
                 },
                 "test": {
@@ -103,13 +103,12 @@
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "src/styles.css"
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     }
                 }
             }
         }
-    },
-    "defaultProject": "hospital"
+    }
 }

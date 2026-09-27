@@ -1,0 +1,46 @@
+<app-page-hero
+    eyebrow="Patient Resources"
+    title="Insurance & Billing"
+    intro="We want the cost of your care to be clear. Here’s what we accept and how billing works."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="split">
+            <div>
+                <h2 class="heading-md">Insurance we accept</h2>
+                <p class="body-text">
+                    We work with most major insurance plans. Coverage can vary, so please call your insurance company
+                    or our office to confirm before your visit.
+                </p>
+                <a [href]="'tel:' + contact.phone" class="btn btn-tertiary">Call to confirm coverage</a>
+            </div>
+            <div class="card">
+                <ul class="check-list">
+                    <li *ngFor="let plan of plans">{{ plan }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Billing</span>
+            <h2 class="heading-lg">Ways to pay</h2>
+            <p class="section-intro">
+                You’ll get a statement after your insurance processes your visit. No insurance? Ask about our self-pay rates.
+            </p>
+        </div>
+
+        <div class="grid grid-3">
+            <div *ngFor="let option of paymentOptions" class="card">
+                <span class="card-icon"><i [class]="option.icon" aria-hidden="true"></i></span>
+                <h3 class="card-title">{{ option.title }}</h3>
+                <p class="card-text">{{ option.text }}</p>
+            </div>
+        </div>
+    </div>
+</section>

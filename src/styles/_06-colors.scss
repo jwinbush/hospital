@@ -1,0 +1,20 @@
+/* ==========================================================================
+   06. COLORS
+   ========================================================================== */
+
+
+/* ---- Text colors ---- */
+
+.text-teal       { color: var(--color-teal); }
+.text-teal-dark  { color: var(--color-teal-dark); }
+.text-navy       { color: var(--color-navy); }
+.text-muted-navy { color: var(--color-text-muted); }
+
+
+/* ---- Background colors ---- */
+
+.bg-teal       { background-color: var(--color-teal); }
+.bg-teal-dark  { background-color: var(--color-teal-dark); }
+.bg-teal-light { background-color: var(--color-teal-light); }
+.bg-navy       { background-color: var(--color-navy); }
+.bg-gray-light { background-color: var(--color-gray-light); }

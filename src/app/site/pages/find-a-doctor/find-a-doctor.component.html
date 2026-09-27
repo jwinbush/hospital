@@ -1,0 +1,69 @@
+<app-page-hero
+    eyebrow="Find a Doctor"
+    title="Provider directory"
+    intro="Search our doctors, nurse practitioners and counselors by name, specialty, location or language.">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container directory">
+
+        <!-- Filters -->
+        <form class="directory__filters card" (submit)="$event.preventDefault()" role="search">
+            <div class="form-field">
+                <label for="search">Name or specialty</label>
+                <input id="search" name="search" class="input" type="search" placeholder="e.g. Thompson or psychiatrist"
+                       [(ngModel)]="search">
+            </div>
+
+            <div class="form-field">
+                <label for="service">Service</label>
+                <select id="service" name="service" class="input" [(ngModel)]="serviceSlug">
+                    <option value="">All services</option>
+                    <option *ngFor="let service of services" [value]="service.slug">{{ service.name }}</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="location">Location</label>
+                <select id="location" name="location" class="input" [(ngModel)]="location">
+                    <option value="">All locations</option>
+                    <option *ngFor="let place of locations" [value]="place.name">{{ place.name }}</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="language">Language</label>
+                <select id="language" name="language" class="input" [(ngModel)]="language">
+                    <option value="">Any language</option>
+                    <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+                </select>
+            </div>
+
+            <div class="choice-group">
+                <label>
+                    <input type="checkbox" name="accepting" [(ngModel)]="acceptingOnly">
+                    Accepting new patients
+                </label>
+            </div>
+
+            <button type="button" class="btn btn-tertiary btn-sm" (click)="clearFilters()">Clear filters</button>
+        </form>
+
+        <!-- Results -->
+        <div>
+            <p class="directory__count" aria-live="polite">
+                {{ results.length }} {{ results.length === 1 ? 'provider' : 'providers' }} found
+            </p>
+
+            <div class="grid grid-2" *ngIf="results.length; else noResults">
+                <app-provider-card *ngFor="let provider of results" [provider]="provider"></app-provider-card>
+            </div>
+
+            <ng-template #noResults>
+                <div class="notice">
+                    <p>No providers match those filters. Try clearing a filter, or call us and we’ll help you find the right provider.</p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

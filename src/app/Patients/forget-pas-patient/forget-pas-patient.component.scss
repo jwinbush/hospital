@@ -3,8 +3,7 @@ $purple:#4747A1;
 $lpurple:#7978E9;
 $pink:#F3797E;
 .patient-forgot {
-    padding-top: 12vh;
-    height: 100vh;
+    padding-top: 6.75rem;
 }
 
 .password-reset-form {
@@ -30,7 +29,7 @@ $pink:#F3797E;
 
 .card {
     padding: 1%;
-    margin: 25vh 0;
+    margin: 14rem 0;
     background-color: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(136, 136, 136, 0.2), 0 6px 20px 0 rgba(138, 138, 138, 0.19);
 }
@@ -74,13 +73,13 @@ $pink:#F3797E;
 
 @media (max-width:996px) {
     .image {
-        margin-top: -12vh;
+        margin-top: -6.75rem;
         height: 32vw;
         width: 40vw;
     }
     .card {
         padding: 1%;
-        margin: 10vh 0;
+        margin: 5.5rem 0;
     }
 }
 
@@ -110,6 +109,6 @@ $pink:#F3797E;
         color: rgb(43, 43, 43);
     }
     .card {
-        margin: 7vh 0;
+        margin: 4rem 0;
     }
 }

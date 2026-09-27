@@ -1,0 +1,41 @@
+/* ==========================================================================
+   04. LAYOUT
+   --------------------------------------------------------------------------
+   .site-wrapper    A full-width band (one page section). It holds the
+                    background color and the top/bottom spacing.
+   .site-container  Centers content, caps its width and adds side gutters.
+
+   Example:
+     <section class="site-wrapper site-wrapper--gray">
+         <div class="site-container"> … </div>
+     </section>
+   ========================================================================== */
+
+.site-wrapper {
+    width: 100%;
+    padding-block: var(--section-space);
+
+    /* Spacing variants */
+    &--sm    { padding-block: var(--section-space-sm); }
+    &--lg    { padding-block: var(--section-space-lg); }
+    &--flush { padding-block: 0; }
+
+    /* Background variants */
+    &--white      { background-color: var(--color-white); }
+    &--gray       { background-color: var(--color-gray-light); }
+    &--teal-light { background-color: var(--color-teal-light); }
+    &--teal       { background-color: var(--color-teal); color: var(--color-white); }
+    &--navy       { background-color: var(--color-navy); color: var(--color-white); }
+}
+
+.site-container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+
+    /* Width variants */
+    &--narrow { max-width: var(--container-narrow); }
+    &--wide   { max-width: var(--container-wide); }
+    &--full   { max-width: none; }
+}

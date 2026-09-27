@@ -1,0 +1,22 @@
+/* ==========================================================================
+   02. FONTS
+   --------------------------------------------------------------------------
+   Figtree variable fonts: one file each for upright and italic, covering
+   every weight from 300 (light) to 900 (black).
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('../assets/fonts/figtree/Figtree-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('../assets/fonts/figtree/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 900;
+    font-style: italic;
+    font-display: swap;
+}

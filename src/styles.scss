@@ -1,132 +1,43 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-$blue: #7da0fa;
-$purple: #4747a1;
-$lpurple: #7978e9;
-$pink: #f3797e;
-::-webkit-scrollbar {
-    width: 10px;
-    overflow-y: scroll;
-    background: #f8f8f8;
-    box-shadow: inset 0 0 4px #707070;
-}
+/* ==========================================================================
+   SERENITY CARE SERVICES — GLOBAL STYLES
+   ==========================================================================
 
-@font-face {
-    font-family: 'Figtree';
-    src: url('./assets/fonts/figtree/Figtree-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
+   This file only loads the partials in src/styles/, in this order.
+   Order matters: later files win when two rules are equally specific.
 
-* {
-    font-family: 'Figtree', sans-serif!important;
-    font-weight: 300;
-}
+   TABLE OF CONTENTS
+   -----------------
+   01. Tokens ............. CSS variables: colors, fs, fw, lh, spacing, widths
+   02. Fonts .............. @font-face declarations
+   03. Reset .............. box-sizing, body, headings, lists, forms, tables
+   04. Layout ............. .site-wrapper, .site-container
+   05. Typography ......... .heading-*, .fs-*, .fw-*, .lh-*, .eyebrow
+   06. Colors ............. .text-{color}, .bg-{color}
+   07. Buttons ............ .btn + .btn-primary / -secondary / -tertiary / -light
+   08. Components ......... section header, grid, card, breadcrumb, lists,
+                            tag, avatar, accordion, forms, notice
+   09. Utilities .......... .stack-*, .section-space-*, .gutter-x
+   10. Animations ......... .grow, .rotate, .middle, .object
+   11. Scrollbar .......... custom webkit scrollbar
+   12. Vendor overrides ... Angular Material, browser autofill
 
-.mat-progress-spinner circle,
-.mat-spinner circle {
-    stroke: rgb(26, 26, 26) !important;
-}
+   HOW TO USE THE VARIABLES
+   Variables from 01-tokens work in ANY stylesheet, including component
+   .scss files:   color: var(--color-teal);   font-size: var(--fs-lg);
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-}
+   Short names:  fs = font size   fw = font weight   lh = line height
+                 ff = font family
+   ========================================================================== */
 
-::-webkit-scrollbar-thumb {
-    background: $blue;
-    border-radius: 100px;
-    height: 10px !important;
-    overflow-x: hidden;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #4f6cb6;
-    border-radius: 100px;
-    height: 50px !important;
-    overflow: auto;
-}
-
-
-/* ANIMATION  */
-
-.grow2 {
-    transition: all 0.01s ease-in-out;
-}
-
-.grow2:hover {
-    transform: scale(1.03);
-}
-
-.grow {
-    transition: all 0.2s ease-in-out !important;
-}
-
-.grow:hover {
-    transform: scale(1.1) !important;
-}
-
-.rotate {
-    transition: transform 0.5s ease-in-out;
-}
-
-.rotate:hover {
-    transform: rotate(360deg);
-}
-
-.object {
-    animation: MoveUpDown 3s linear infinite;
-    position: absolute;
-}
-
-@keyframes MoveUpDown {
-    0%,
-    100% {
-        bottom: 0;
-    }
-    50% {
-        bottom: 10px;
-    }
-}
-
-.middle {
-    position: relative;
-}
-
-.middle:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(255, 255, 255);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-.middle:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-html,
-body {
-    margin: 0;
-    font-family: 'Republic', sans-serif;
-    &::-webkit-scrollbar {
-        display: none;
-        /* Chrome, Safari, and Opera */
-    }
-}
-
-.dark {
-    .mat-form-field-label {
-        color: #fff !important;
-    }
-    .mat-form-field-underline {
-        background-color: #fff !important;
-    }
-}
+@use "styles/01-tokens" as *;
+@use "styles/02-fonts" as *;
+@use "styles/03-reset" as *;
+@use "styles/04-layout" as *;
+@use "styles/05-typography" as *;
+@use "styles/06-colors" as *;
+@use "styles/07-buttons" as *;
+@use "styles/08-components" as *;
+@use "styles/09-utilities" as *;
+@use "styles/10-animations" as *;
+@use "styles/11-scrollbar" as *;
+@use "styles/12-vendor-overrides" as *;

@@ -1,0 +1,60 @@
+<ng-container *ngIf="service">
+    <app-page-hero
+        eyebrow="Services"
+        [title]="service.name"
+        [intro]="service.summary"
+        [breadcrumbs]="breadcrumbs">
+        <a routerLink="/book-appointment" [queryParams]="{ service: service.slug }" class="btn btn-primary">
+            Book a {{ service.name }} Visit
+        </a>
+    </app-page-hero>
+
+    <section class="site-wrapper">
+        <div class="site-container">
+            <div class="split">
+                <div>
+                    <h2 class="heading-md">About {{ service.name }}</h2>
+                    <p class="body-text">{{ service.description }}</p>
+                </div>
+                <div class="card">
+                    <h2 class="card-title">What we offer</h2>
+                    <ul class="check-list">
+                        <li *ngFor="let offering of service.offerings">{{ offering }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="site-wrapper site-wrapper--gray" *ngIf="conditions.length">
+        <div class="site-container">
+            <div class="section-header">
+                <span class="eyebrow">Conditions We Treat</span>
+                <h2 class="heading-lg">Related conditions</h2>
+            </div>
+
+            <div class="grid grid-4">
+                <a *ngFor="let category of conditions" [routerLink]="['/conditions', category.slug]" class="card">
+                    <span class="card-icon"><i [class]="category.icon" aria-hidden="true"></i></span>
+                    <h3 class="card-title">{{ category.name }}</h3>
+                    <p class="card-text">{{ category.summary }}</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="site-wrapper" *ngIf="providers.length">
+        <div class="site-container">
+            <div class="section-header">
+                <span class="eyebrow">Providers</span>
+                <h2 class="heading-lg">Meet the team</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <app-provider-card *ngFor="let provider of providers" [provider]="provider"></app-provider-card>
+            </div>
+        </div>
+    </section>
+
+    <app-cta-band></app-cta-band>
+</ng-container>

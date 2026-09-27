@@ -1,0 +1,29 @@
+<app-page-hero
+    eyebrow="Patient Resources"
+    title="Patient Forms"
+    intro="Save time at check-in by filling out your forms before your visit."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container site-container--narrow">
+        <div class="notice forms-notice">
+            <p>
+                <strong>Fastest option:</strong> complete your forms online in the
+                <a routerLink="/patient-portal">Patient Portal</a>. You can also print them and bring them to your visit.
+            </p>
+        </div>
+
+        <ul class="form-list">
+            <li *ngFor="let form of forms" class="form-list__item">
+                <span class="card-icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                <div>
+                    <h2 class="card-title">{{ form.name }}</h2>
+                    <p class="card-text">{{ form.description }}</p>
+                </div>
+                <!-- Replace href with the real PDF link for each form -->
+                <a href="#" class="btn btn-tertiary btn-sm">Download PDF</a>
+            </li>
+        </ul>
+    </div>
+</section>

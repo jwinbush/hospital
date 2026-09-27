@@ -1,0 +1,26 @@
+/* ==========================================================================
+   11. SCROLLBAR
+   --------------------------------------------------------------------------
+   Styles scrollbars inside scrollable elements (the page's own scrollbar
+   is hidden in 03-reset).
+   ========================================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    overflow-y: scroll;
+    background: var(--color-gray-light);
+    box-shadow: inset 0 0 4px #707070;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 10px !important;
+    overflow-x: hidden;
+    background: var(--color-teal);
+    border-radius: 100px;
+
+    &:hover {
+        height: 50px !important;
+        overflow: auto;
+        background: var(--color-teal-dark);
+    }
+}

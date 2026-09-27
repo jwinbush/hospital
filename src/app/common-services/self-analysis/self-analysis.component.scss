@@ -8,7 +8,7 @@ $lpurple:#7978E9;
 $pink:#F3797E;
 .select {
     font-size: 200%;
-    margin: 2vh 1%;
+    margin: 1rem 1%;
     font-weight: bold;
 }
 
@@ -54,11 +54,11 @@ body {
     text-align: center;
     justify-content: center;
     margin-top: 3%;
-    padding-top: 1vh;
+    padding-top: 0.5rem;
 }
 
 .cat {
-    padding-top: 8vh;
+    padding-top: 4.5rem;
 }
 
 .category2 {
@@ -108,11 +108,11 @@ body {
 }
 
 .heightfix {
-    min-height: 100vh;
+    min-height: 56.25rem;
 }
 
 .marginHide2 {
-    padding-top: 12vh;
+    padding-top: 6.75rem;
 }
 
 .result {
@@ -180,6 +180,6 @@ body {
         line-height: 45px;
     }
     .heightfix {
-        max-height: 130vh;
+        max-height: 73rem;
     }
 }

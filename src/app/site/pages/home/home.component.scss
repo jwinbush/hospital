@@ -1,0 +1,160 @@
+/* ---- Hero: headline beside a photo, with a sun circle and wave from the logo ---- */
+
+.hero {
+    position: relative;
+    display: flex;
+    min-height: 40rem;
+    height: auto;
+    background-color: var(--color-teal-light);
+    overflow: hidden;
+
+    /* Two parallel waves along the bottom edge */
+    &__wave {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        pointer-events: none;
+    }
+
+    &__wave-back {
+        fill: var(--color-white);
+        fill-opacity: 0.5;
+    }
+
+    &__wave-front {
+        fill: var(--color-teal);
+        fill-opacity: 0.1;
+    }
+
+    /* Text on the left, photo on the right; stacked on smaller screens */
+    &__inner {
+        position: relative; // sits above the decorative shapes
+        display: grid;
+        align-items: center;
+        gap: var(--space-6);
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+
+        @media (min-width: 60rem) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__content {
+        padding-top: var(--space-9);
+
+        @media (min-width: 60rem) {
+            padding-bottom: var(--space-9);
+        }
+    }
+
+    /* Cut-out photo stands on the bottom edge of the hero */
+    &__media {
+        position: relative;
+        display: grid; // photos share one cell so they stack for the cross-fade
+        align-self: end;
+        justify-self: center;
+        width: 100%;
+        max-width: 32rem;
+
+        // sun circle, centred behind the head
+        &::before {
+            content: "";
+            position: absolute;
+            top: 2%;
+            left: 10%;
+            width: 80%;
+            aspect-ratio: 1;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+    }
+
+    &__image {
+        position: relative; // sits above the sun circle
+        grid-area: 1 / 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5 / 6;
+        object-fit: cover;
+        object-position: 66% bottom; // crops the empty space left of the subject
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+
+        &.is-active {
+            opacity: 1;
+        }
+    }
+
+    &__title {
+        max-width: 40rem;
+        margin-bottom: var(--space-4);
+        font-size: var(--fs-3xl);
+        font-weight: var(--fw-bold);
+        line-height: var(--lh-tight);
+    }
+
+    &__text {
+        max-width: 36rem;
+        margin-bottom: var(--space-6);
+        font-size: var(--fs-md);
+        line-height: var(--lh-body);
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+}
+
+
+/* ---- Quick links: row of shortcuts under the hero ---- */
+
+.quick-links {
+    position: relative;
+    margin-top: calc(-1 * var(--space-7)); // overlaps the bottom of the hero
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: var(--color-white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-5) var(--space-6);
+        font-weight: var(--fw-medium);
+        color: var(--color-navy);
+        text-decoration: none;
+
+        i {
+            color: var(--color-teal);
+        }
+
+        &:hover {
+            color: var(--color-teal-dark);
+            background-color: var(--color-teal-light);
+        }
+    }
+}
+
+
+.home__more {
+    margin-top: var(--space-7);
+}

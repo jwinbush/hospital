@@ -24,7 +24,7 @@ $color-blue--2: #5fc9f8;
 .chatbox {
     background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(0, 152, 155, 0.5) 0.1%, rgba(0, 94, 120, 1) 94.2%);
     background-image: url('../../../assets/images/bg.png');
-    min-height: 100vh;
+    min-height: 56.25rem;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -37,7 +37,7 @@ $color-blue--2: #5fc9f8;
     background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(0, 152, 155, 1) 0.1%, rgba(0, 94, 120, 1) 94.2%);
     // background-image: url('../../../assets/images/bg.png');
     border-radius: 10px;
-    margin-top: 5vh;
+    margin-top: 2.75rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
     display: flex;
@@ -75,7 +75,7 @@ $color-blue--2: #5fc9f8;
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 52vh;
+    height: 29.25rem;
     overflow: scroll;
 }
 
@@ -161,7 +161,7 @@ $color-blue--2: #5fc9f8;
 }
 
 .submit {
-    margin-top: 3vh;
+    margin-top: 1.75rem;
 }
 
 #input-message {
@@ -231,7 +231,7 @@ $color-blue--2: #5fc9f8;
     .chatroom {
         max-width: 95%;
         width: 95%;
-        margin-top: 6vh;
+        margin-top: 3.5rem;
         border-radius: 0px;
     }
     .chatroom_history_list {
@@ -241,25 +241,25 @@ $color-blue--2: #5fc9f8;
         display: flex;
         border-radius: 0px;
         flex-direction: column;
-        max-height: 50vh;
+        max-height: 28rem;
         overflow: scroll;
     }
     #input-user {
         width: 100% !important;
         box-shadow: none;
-        margin-top: 3vh;
+        margin-top: 1.75rem;
     }
     .submit {
-        margin: 3vh 0;
+        margin: 1.75rem 0;
     }
     #input-message {
         width: 100% !important;
         box-shadow: none;
-        margin-top: 3vh;
+        margin-top: 1.75rem;
     }
     .chatbox {
         background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(0, 152, 155, 1) 0.1%, rgba(0, 94, 120, 1) 94.2%);
-        min-height: 100vh;
+        min-height: 56.25rem;
     }
     .chatr {
         padding: 0;

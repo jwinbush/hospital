@@ -1,0 +1,21 @@
+<a [routerLink]="['/find-a-doctor', provider.slug]" class="card provider-card">
+    <div class="provider-card__header">
+        <span class="avatar">{{ initials(provider.name) }}</span>
+        <div>
+            <h3 class="card-title">{{ displayName(provider) }}</h3>
+            <p class="card-text">{{ provider.title }}</p>
+        </div>
+    </div>
+
+    <p class="card-text">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ provider.location }}
+    </p>
+
+    <div class="provider-card__tags">
+        <span class="tag" *ngIf="provider.acceptingNewPatients">Accepting new patients</span>
+        <span class="tag tag-muted" *ngIf="!provider.acceptingNewPatients">Not accepting new patients</span>
+        <span class="tag tag-muted">{{ provider.languages.join(', ') }}</span>
+    </div>
+
+    <span class="card-link">View profile</span>
+</a>

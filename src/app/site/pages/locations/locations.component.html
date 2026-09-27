@@ -1,0 +1,43 @@
+<app-page-hero
+    eyebrow="Contact"
+    title="Locations"
+    intro="Three neighborhood clinics with convenient hours, free parking and same-day appointments."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="grid grid-3">
+            <div *ngFor="let location of locations" class="card location-card">
+                <span class="card-icon"><i class="fas fa-clinic-medical" aria-hidden="true"></i></span>
+                <h2 class="card-title">{{ location.name }}</h2>
+
+                <dl class="detail-list">
+                    <div>
+                        <dt>Address</dt>
+                        <dd>{{ location.address }}<br>{{ location.city }}</dd>
+                    </div>
+                    <div>
+                        <dt>Phone</dt>
+                        <dd><a [href]="'tel:' + location.phone">{{ location.phone }}</a></dd>
+                    </div>
+                    <div>
+                        <dt>Hours</dt>
+                        <dd>
+                            <ng-container *ngFor="let hours of location.hours; let last = last">
+                                {{ hours }}<br *ngIf="!last">
+                            </ng-container>
+                        </dd>
+                    </div>
+                </dl>
+
+                <div class="location-card__actions">
+                    <a [href]="mapLink(location.address, location.city)" target="_blank" rel="noopener"
+                       class="btn btn-tertiary btn-sm">Get Directions</a>
+                    <a routerLink="/book-appointment" [queryParams]="{ location: location.slug }"
+                       class="btn btn-primary btn-sm">Book Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

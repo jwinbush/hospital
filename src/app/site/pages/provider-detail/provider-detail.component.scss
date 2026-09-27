@@ -1,0 +1,15 @@
+/* Summary card on the left, bio on the right */
+.profile {
+    display: grid;
+    align-items: start;
+    gap: var(--space-8);
+
+    @media (min-width: 64rem) {
+        grid-template-columns: 20rem 1fr;
+    }
+
+    &__summary {
+        align-items: flex-start;
+        gap: var(--space-5);
+    }
+}

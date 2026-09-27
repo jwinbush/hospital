@@ -1,0 +1,43 @@
+<app-page-hero
+    eyebrow="Our Mission"
+    title="Making quality care feel personal"
+    intro="Our mission is to improve the health of our community by giving every patient compassionate, coordinated care they can count on."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="split">
+            <img class="split__image" src="assets/images/health-3.jpg" alt="A nurse caring for a patient">
+            <div>
+                <h2 class="heading-md">Our vision</h2>
+                <p class="body-text">
+                    A community where everyone has a trusted care team — one that knows their history, answers their
+                    questions and helps them stay healthy, not just get better.
+                </p>
+                <p class="body-text">
+                    We measure success by how our patients feel: heard, supported and confident in their care.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Our Values</span>
+            <h2 class="heading-lg">What guides us</h2>
+        </div>
+
+        <div class="grid grid-4">
+            <div *ngFor="let value of values" class="card">
+                <span class="card-icon"><i [class]="value.icon" aria-hidden="true"></i></span>
+                <h3 class="card-title">{{ value.title }}</h3>
+                <p class="card-text">{{ value.text }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-cta-band></app-cta-band>

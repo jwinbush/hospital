@@ -1,0 +1,64 @@
+<ng-container *ngIf="provider">
+    <app-page-hero
+        [eyebrow]="provider.title"
+        [title]="displayName"
+        [breadcrumbs]="breadcrumbs">
+        <a *ngIf="provider.acceptingNewPatients" routerLink="/book-appointment"
+           [queryParams]="{ provider: provider.slug }" class="btn btn-primary">
+            Book with {{ provider.name.split(' ')[0] }}
+        </a>
+        <a *ngIf="location" [href]="'tel:' + location.phone" class="btn btn-tertiary">Call {{ location.phone }}</a>
+    </app-page-hero>
+
+    <section class="site-wrapper">
+        <div class="site-container profile">
+
+            <!-- Summary card -->
+            <aside class="card profile__summary">
+                <span class="avatar avatar-lg">{{ initials(provider.name) }}</span>
+                <span class="tag" *ngIf="provider.acceptingNewPatients">Accepting new patients</span>
+                <span class="tag tag-muted" *ngIf="!provider.acceptingNewPatients">Not accepting new patients</span>
+
+                <dl class="detail-list">
+                    <div *ngIf="service">
+                        <dt>Service</dt>
+                        <dd><a [routerLink]="['/services', service.slug]">{{ service.name }}</a></dd>
+                    </div>
+                    <div>
+                        <dt>Location</dt>
+                        <dd>
+                            {{ provider.location }}
+                            <ng-container *ngIf="location"><br>{{ location.address }}<br>{{ location.city }}</ng-container>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>Languages</dt>
+                        <dd>{{ provider.languages.join(', ') }}</dd>
+                    </div>
+                </dl>
+            </aside>
+
+            <!-- About -->
+            <div class="stack">
+                <div>
+                    <h2 class="heading-md">About {{ displayName }}</h2>
+                    <p class="body-text">{{ provider.bio }}</p>
+                </div>
+
+                <div>
+                    <h2 class="heading-sm">Education & training</h2>
+                    <ul class="check-list">
+                        <li *ngFor="let item of provider.education">{{ item }}</li>
+                    </ul>
+                </div>
+
+                <div *ngIf="location">
+                    <h2 class="heading-sm">Office hours</h2>
+                    <ul class="check-list">
+                        <li *ngFor="let hours of location.hours">{{ hours }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

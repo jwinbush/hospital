@@ -1,0 +1,257 @@
+/* ==========================================================================
+   03. RESET
+   --------------------------------------------------------------------------
+   Makes every browser start from the same defaults.
+
+   Contents:
+     - Box sizing and page
+     - Headings and text
+     - Lists
+     - Links
+     - Media
+     - Tables
+     - Forms
+   ========================================================================== */
+
+
+/* ---- Box sizing and page ---- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Figtree everywhere, except icon fonts (Font Awesome, Material Icons) */
+/* :where() keeps this rule's specificity at zero, so any class can override the weight */
+:where(*:not(.fa, .fas, .far, .fab, .fal, .material-icons, mat-icon)) {
+    font-family: var(--ff-body) !important;
+    font-weight: var(--fw-light);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Hide the page scrollbar in Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 1px solid;
+    opacity: 0.25;
+}
+
+
+/* ---- Headings and text ---- */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+h1 { font-size: var(--fs-2xl); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-lg); }
+h4 { font-size: var(--fs-base); }
+h5 { font-size: var(--fs-sm); }
+h6 { font-size: var(--fs-xs); }
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: var(--fs-base);  /* same size as .btn */
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+small {
+    font-size: 0.875em;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 0.75em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+blockquote,
+figure {
+    margin: 0 0 1rem;
+}
+
+
+/* ---- Lists ---- */
+
+ol,
+ul {
+    padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+}
+
+
+/* ---- Links ---- */
+
+a {
+    color: var(--color-teal);
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--color-teal-dark);
+    }
+}
+
+/* Links without an href or class (used as click targets) look like text */
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---- Media ---- */
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+iframe {
+    border: 0;
+}
+
+
+/* ---- Tables ---- */
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+
+/* ---- Forms ---- */
+
+label {
+    display: inline-block;
+}
+
+button {
+    border-radius: 0;
+}
+
+button:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+[role="button"] {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+[hidden] {
+    display: none !important;
+}

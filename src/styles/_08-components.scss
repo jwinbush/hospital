@@ -1,0 +1,391 @@
+/* ==========================================================================
+   08. COMPONENTS
+   --------------------------------------------------------------------------
+   Reusable building blocks shared by every page.
+
+   Contents:
+     - Section header ... .section-header, .section-intro
+     - Grid ............. .grid, .grid-2, .grid-3, .grid-4
+     - Split ............ .split (text beside an image)
+     - Card ............. .card, .card-icon, .card-title, .card-text, .card-link
+     - Breadcrumb ....... .breadcrumb
+     - Lists ............ .check-list, .detail-list
+     - Tag .............. .tag, .tag-muted
+     - Avatar ........... .avatar
+     - Accordion ........ .accordion (uses <details> / <summary>)
+     - Forms ............ .form, .form-grid, .form-field, .input, .form-error
+     - Notice ........... .notice
+   ========================================================================== */
+
+
+/* ---- Section header: eyebrow + heading + intro, above a section ---- */
+
+.section-header {
+    max-width: 45rem;
+    margin-bottom: var(--space-7);
+
+    &.is-centered {
+        margin-inline: auto;
+        text-align: center;
+    }
+}
+
+.section-intro {
+    margin: 0;
+    font-size: var(--fs-md);
+    line-height: var(--lh-body);
+    color: var(--color-text-muted);
+}
+
+
+/* ---- Grid: responsive columns that wrap on small screens ---- */
+
+.grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+    .grid-2,
+    .grid-3,
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 64rem) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+/* ---- Split: two columns, usually text beside an image ---- */
+
+.split {
+    display: grid;
+    align-items: center;
+    gap: var(--space-8);
+
+    @media (min-width: 64rem) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__image {
+        width: 100%;
+        border-radius: var(--radius-lg);
+    }
+}
+
+
+/* ---- Card ---- */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    height: 100%;
+    padding: var(--space-6);
+    color: var(--color-text);
+    text-decoration: none;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition), box-shadow var(--transition),
+                transform var(--transition);
+}
+
+/* Cards that are links lift slightly on hover */
+a.card:hover {
+    color: var(--color-text);
+    border-color: var(--color-teal);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: var(--fs-lg);
+    color: var(--color-teal);
+    background-color: var(--color-teal-light);
+    border-radius: var(--radius);
+}
+
+.card-title {
+    margin: 0;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-snug);
+}
+
+.card-text {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: var(--lh-body);
+}
+
+.card-link {
+    margin-top: auto;
+    font-weight: var(--fw-medium);
+    color: var(--color-teal);
+}
+
+
+/* ---- Breadcrumb: "Home / Services / Primary Care" ---- */
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    font-size: var(--fs-sm);
+    list-style: none;
+
+    li + li::before {
+        content: "/";
+        margin-right: var(--space-2);
+        color: var(--color-text-muted);
+    }
+
+    a {
+        color: var(--color-teal-dark);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    [aria-current="page"] {
+        color: var(--color-text-muted);
+    }
+}
+
+
+/* ---- Lists ---- */
+
+/* Bulleted list with teal check marks */
+.check-list {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        position: relative;
+        padding-left: var(--space-6);
+        line-height: var(--lh-body);
+
+        &::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            font-weight: var(--fw-bold);
+            color: var(--color-teal);
+        }
+    }
+}
+
+/* Label / value pairs, e.g. on a doctor's profile */
+.detail-list {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+
+    dt {
+        font-size: var(--fs-sm);
+        font-weight: var(--fw-bold);
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    dd {
+        margin: var(--space-1) 0 0;
+    }
+}
+
+
+/* ---- Tag: small rounded label ---- */
+
+.tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    color: var(--color-teal-dark);
+    background-color: var(--color-teal-light);
+    border-radius: var(--radius-pill);
+}
+
+.tag-muted {
+    color: var(--color-text-muted);
+    background-color: var(--color-gray-light);
+}
+
+
+/* ---- Avatar: circle with a person's initials ---- */
+
+.avatar {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+    background-color: var(--color-teal-dark);
+    border-radius: 50%;
+
+    &.avatar-lg {
+        width: 7rem;
+        height: 7rem;
+        font-size: var(--fs-2xl);
+    }
+}
+
+
+/* ---- Accordion: expandable question / answer rows ----
+   <div class="accordion">
+       <details><summary>Question</summary><p>Answer</p></details>
+   </div> */
+
+.accordion {
+    border-top: 1px solid var(--color-border);
+
+    details {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-5) 0;
+        font-size: var(--fs-md);
+        font-weight: var(--fw-medium);
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Plus sign that turns into a minus when open */
+        &::after {
+            content: "+";
+            font-size: var(--fs-xl);
+            color: var(--color-teal);
+        }
+    }
+
+    details[open] summary::after {
+        content: "\2212";
+    }
+
+    details p {
+        margin: 0;
+        padding-bottom: var(--space-5);
+        color: var(--color-text-muted);
+        line-height: var(--lh-body);
+    }
+}
+
+
+/* ---- Forms ---- */
+
+.form {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.form-grid {
+    display: grid;
+    gap: var(--space-5);
+
+    @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-field {
+    display: grid;
+    gap: var(--space-2);
+
+    /* Makes a field take the full row inside .form-grid */
+    &.is-full {
+        grid-column: 1 / -1;
+    }
+
+    label,
+    legend {
+        font-size: var(--fs-sm);
+        font-weight: var(--fw-medium);
+    }
+}
+
+.input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--fs-base);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition);
+
+    &:focus {
+        outline: 0;
+        border-color: var(--color-teal);
+        box-shadow: 0 0 0 3px var(--color-teal-light);
+    }
+}
+
+textarea.input {
+    min-height: 8rem;
+}
+
+/* Required field left empty after the user touched it */
+.input.ng-invalid.ng-touched {
+    border-color: var(--color-error);
+}
+
+.form-error {
+    margin: 0;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    color: var(--color-error);
+}
+
+/* Row of radio buttons or checkboxes */
+.choice-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+
+    label {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-weight: var(--fw-regular);
+    }
+}
+
+
+/* ---- Notice: highlighted message box ---- */
+
+.notice {
+    padding: var(--space-5);
+    background-color: var(--color-teal-light);
+    border-left: 4px solid var(--color-teal);
+    border-radius: var(--radius);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

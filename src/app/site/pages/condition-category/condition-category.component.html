@@ -1,0 +1,52 @@
+<ng-container *ngIf="category">
+    <app-page-hero
+        eyebrow="Conditions & Treatments"
+        [title]="category.name"
+        [intro]="category.summary"
+        [breadcrumbs]="breadcrumbs">
+    </app-page-hero>
+
+    <section class="site-wrapper">
+        <div class="site-container">
+            <div class="split">
+                <div>
+                    <h2 class="heading-md">Conditions we treat</h2>
+                    <ul class="check-list">
+                        <li *ngFor="let condition of category.conditions">{{ condition }}</li>
+                    </ul>
+                </div>
+
+                <div class="card" *ngIf="service">
+                    <span class="card-icon"><i [class]="service.icon" aria-hidden="true"></i></span>
+                    <h2 class="card-title">How we can help</h2>
+                    <p class="card-text">
+                        {{ category.name }} care is part of our {{ service.name }} service. {{ service.summary }}
+                    </p>
+                    <a [routerLink]="['/services', service.slug]" class="card-link">About {{ service.name }}</a>
+                </div>
+            </div>
+
+            <div class="notice condition-notice">
+                <p>
+                    <strong>Having an emergency?</strong> Call 911 or go to the nearest emergency room.
+                    This page is general information and isn’t a substitute for advice from your provider.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="site-wrapper site-wrapper--gray" *ngIf="providers.length">
+        <div class="site-container">
+            <div class="section-header">
+                <span class="eyebrow">Providers</span>
+                <h2 class="heading-lg">Providers who treat {{ category.name | lowercase }} conditions</h2>
+            </div>
+
+            <div class="grid grid-3">
+                <app-provider-card *ngFor="let provider of providers" [provider]="provider"></app-provider-card>
+            </div>
+        </div>
+    </section>
+
+    <app-cta-band></app-cta-band>
+</ng-container>

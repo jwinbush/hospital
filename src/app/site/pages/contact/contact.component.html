@@ -1,0 +1,73 @@
+<app-page-hero
+    eyebrow="Contact"
+    title="We’re here to help"
+    intro="Send us a message and we’ll reply within one business day. For medical questions, please use the Patient Portal.">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container contact">
+
+        <!-- Form -->
+        <div>
+            <div class="notice" *ngIf="submitted; else contactForm">
+                <p><strong>Thank you, {{ message.name }}.</strong> We received your message and will be in touch soon.</p>
+            </div>
+
+            <ng-template #contactForm>
+                <form #form="ngForm" class="form" (ngSubmit)="submit(form)" novalidate>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="name">Full name *</label>
+                            <input id="name" name="name" class="input" required [(ngModel)]="message.name">
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email *</label>
+                            <input id="email" name="email" type="email" class="input" required email [(ngModel)]="message.email">
+                        </div>
+                        <div class="form-field">
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel" class="input" [(ngModel)]="message.phone">
+                        </div>
+                        <div class="form-field">
+                            <label for="topic">Topic *</label>
+                            <select id="topic" name="topic" class="input" required [(ngModel)]="message.topic">
+                                <option value="" disabled>Choose a topic</option>
+                                <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+                            </select>
+                        </div>
+                        <div class="form-field is-full">
+                            <label for="details">How can we help? *</label>
+                            <textarea id="details" name="details" class="input" required [(ngModel)]="message.details"></textarea>
+                        </div>
+                    </div>
+
+                    <p class="form-error" *ngIf="form.submitted && form.invalid">Please fill in all required fields (*).</p>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </ng-template>
+        </div>
+
+        <!-- Contact details -->
+        <aside class="card contact__details">
+            <h2 class="card-title">Other ways to reach us</h2>
+            <dl class="detail-list">
+                <div>
+                    <dt>Phone</dt>
+                    <dd><a [href]="'tel:' + contact.phone">{{ contact.phone }}</a></dd>
+                </div>
+                <div>
+                    <dt>Email</dt>
+                    <dd><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></dd>
+                </div>
+                <div>
+                    <dt>After-hours nurse line</dt>
+                    <dd><a [href]="'tel:' + contact.afterHours">{{ contact.afterHours }}</a></dd>
+                </div>
+            </dl>
+            <a routerLink="/contact/locations" class="btn btn-tertiary btn-sm">See all {{ locations.length }} locations</a>
+        </aside>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+/* ==========================================================================
+   09. UTILITIES
+   --------------------------------------------------------------------------
+   Small single-purpose spacing classes.
+   ========================================================================== */
+
+
+/* ---- Site spacing ---- */
+
+/* Stack: even vertical space between an element's children */
+.stack-sm > * + * { margin-top: var(--space-3); }
+.stack    > * + * { margin-top: var(--space-5); }
+.stack-lg > * + * { margin-top: var(--space-7); }
+
+/* Section spacing, for sections that don't use .site-wrapper */
+.section-space-sm { padding-block: var(--section-space-sm); }
+.section-space    { padding-block: var(--section-space); }
+.section-space-lg { padding-block: var(--section-space-lg); }
+
+/* Gutter: side padding only */
+.gutter-x { padding-inline: var(--gutter); }

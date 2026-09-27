@@ -1,0 +1,31 @@
+.page-hero {
+    padding-block: var(--space-8);
+    background-color: var(--color-teal-light);
+
+    &__title {
+        max-width: 45rem;
+        margin-bottom: var(--space-4);
+        font-size: var(--fs-3xl);
+        font-weight: var(--fw-bold);
+        line-height: var(--lh-tight);
+    }
+
+    &__intro {
+        max-width: 40rem;
+        margin: 0;
+        font-size: var(--fs-md);
+        line-height: var(--lh-body);
+        color: var(--color-text-muted);
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        margin-top: var(--space-6);
+
+        &:empty {
+            display: none;
+        }
+    }
+}

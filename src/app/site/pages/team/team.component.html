@@ -1,0 +1,44 @@
+<app-page-hero
+    eyebrow="Our Team"
+    title="The people behind your care"
+    intro="Our leadership team works alongside more than 40 doctors, nurse practitioners, nurses and counselors."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="section-header">
+            <h2 class="heading-md">Leadership</h2>
+        </div>
+
+        <div class="grid grid-4">
+            <div *ngFor="let member of team" class="card team-card">
+                <span class="avatar avatar-lg">{{ initials(member.name) }}</span>
+                <h3 class="card-title">{{ member.name }}</h3>
+                <span class="tag">{{ member.role }}</span>
+                <p class="card-text">{{ member.bio }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="split">
+            <div>
+                <h2 class="heading-md">Meet our providers</h2>
+                <p class="body-text">
+                    Looking for a doctor? Browse our providers by specialty, location and language.
+                </p>
+                <a routerLink="/find-a-doctor" class="btn btn-primary">Find a Doctor</a>
+            </div>
+            <div>
+                <h2 class="heading-md">Join our team</h2>
+                <p class="body-text">
+                    We’re always looking for caring people to help us serve our community.
+                </p>
+                <a routerLink="/about/careers" class="btn btn-tertiary">See Open Positions</a>
+            </div>
+        </div>
+    </div>
+</section>

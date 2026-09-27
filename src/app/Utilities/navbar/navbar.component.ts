@@ -1,47 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SharingService } from 'src/app/services/sharing.service';
+import { Component, DestroyRef, Inject, OnInit, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs/operators';
+import { CONTACT, NAVIGATION } from 'src/app/site/site-content';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+    readonly navigation = NAVIGATION;
+    readonly contact = CONTACT;
 
-  navbarcolour: string = "navbar-dark";
-  light !: string;
-  isHome: boolean = false;
+    /** Mobile menu open/closed */
+    menuOpen = false;
+    /** Which section is expanded inside the mobile menu */
+    openSection: string | null = null;
 
-  constructor(private sharingService: SharingService, private router: Router, private activeRoute: ActivatedRoute) { }
+    private readonly destroyRef = inject(DestroyRef);
 
-  ngOnInit(): void {
-    //check if it is the home component
-    this.activeRoute.url.subscribe(params => {
-      this.isHome = params[0].path == 'home';
-    });
+    constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {}
 
-    setInterval(() => {
-      this.light = this.sharingService.getData();
-      if (this.light == "light") {
-        this.navbarcolour = "navbar-light";
-      }
-      else {
-        this.navbarcolour = "navbar-dark";
-      }
-    }, 0.0001);
-  }
-
-  navToElement(el: any): void {
-    if (this.isHome) {
-      //Scroll into Home componet
-      this.sharingService.navToElement(el);
-    } else {
-      //navigate to home from another component with the parameters to select the about
-      this.router.navigate(['home', { goAbout: true }], { skipLocationChange: true });
+    ngOnInit(): void {
+        // Close the mobile menu after moving to a new page
+        this.router.events
+            .pipe(
+                filter((event) => event instanceof NavigationEnd),
+                takeUntilDestroyed(this.destroyRef),
+            )
+            .subscribe(() => this.closeMenu());
     }
-  }
 
+    toggleMenu(): void {
+        this.menuOpen ? this.closeMenu() : this.openMenu();
+    }
 
+    toggleSection(label: string): void {
+        this.openSection = this.openSection === label ? null : label;
+    }
+
+    private openMenu(): void {
+        this.menuOpen = true;
+        this.document.body.style.overflow = 'hidden'; // stop the page scrolling behind the menu
+    }
+
+    private closeMenu(): void {
+        this.menuOpen = false;
+        this.openSection = null;
+        this.document.body.style.overflow = '';
+    }
 }
-

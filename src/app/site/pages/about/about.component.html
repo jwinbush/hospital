@@ -1,0 +1,46 @@
+<app-page-hero
+    eyebrow="About Serenity Health"
+    title="Care that starts with listening"
+    intro="Serenity Health is a community health practice offering primary care, specialty services and mental health support under one roof.">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="split">
+            <div>
+                <h2 class="heading-md">Who we are</h2>
+                <p class="body-text">
+                    We started with a simple idea: health care works best when your providers know you. Today our
+                    doctors, nurses and counselors work as one team across three neighborhood clinics.
+                </p>
+                <p class="body-text">
+                    Whether you need a yearly check-up, help managing a long-term condition or someone to talk to,
+                    we’re here for you and your family.
+                </p>
+            </div>
+            <img class="split__image" src="assets/images/health-2.jpg" alt="Serenity Health care team">
+        </div>
+
+        <ul class="about-stats">
+            <li *ngFor="let stat of stats">
+                <span class="about-stats__value">{{ stat.value }}</span>
+                <span class="about-stats__label">{{ stat.label }}</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="grid grid-3">
+            <a *ngFor="let section of sections" [routerLink]="section.path" class="card">
+                <span class="card-icon"><i [class]="section.icon" aria-hidden="true"></i></span>
+                <h2 class="card-title">{{ section.title }}</h2>
+                <p class="card-text">{{ section.text }}</p>
+                <span class="card-link">Learn more</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<app-cta-band></app-cta-band>

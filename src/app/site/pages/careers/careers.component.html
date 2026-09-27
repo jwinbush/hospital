@@ -1,0 +1,40 @@
+<app-page-hero
+    eyebrow="Careers"
+    title="Do meaningful work with a caring team"
+    intro="Join a practice where you have time for your patients, support from your coworkers and room to grow."
+    [breadcrumbs]="breadcrumbs">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="split">
+            <div>
+                <h2 class="heading-md">Why work here</h2>
+                <ul class="check-list">
+                    <li *ngFor="let benefit of benefits">{{ benefit }}</li>
+                </ul>
+            </div>
+            <img class="split__image" src="assets/images/health-4.jpg" alt="Serenity Health team members">
+        </div>
+    </div>
+</section>
+
+<section class="site-wrapper site-wrapper--gray">
+    <div class="site-container">
+        <div class="section-header">
+            <span class="eyebrow">Open Positions</span>
+            <h2 class="heading-lg">Current openings</h2>
+        </div>
+
+        <ul class="job-list">
+            <li *ngFor="let job of jobs" class="job-list__item">
+                <div>
+                    <h3 class="card-title">{{ job.title }}</h3>
+                    <p class="card-text">{{ job.department }} · {{ job.location }}</p>
+                </div>
+                <span class="tag">{{ job.type }}</span>
+                <a [href]="'mailto:' + contact.email + '?subject=Application: ' + job.title" class="btn btn-primary btn-sm">Apply</a>
+            </li>
+        </ul>
+    </div>
+</section>

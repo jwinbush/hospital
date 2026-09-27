@@ -1,0 +1,26 @@
+<app-page-hero
+    eyebrow="Conditions & Treatments"
+    title="All conditions"
+    intro="Find information about common conditions and the care our providers offer. Choose a category to learn more.">
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="grid grid-3">
+            <a *ngFor="let category of categories" [routerLink]="category.slug" class="card">
+                <span class="card-icon"><i [class]="category.icon" aria-hidden="true"></i></span>
+                <h2 class="card-title">{{ category.name }}</h2>
+                <p class="card-text">{{ category.summary }}</p>
+                <ul class="check-list">
+                    <li *ngFor="let condition of category.conditions.slice(0, 3)">{{ condition }}</li>
+                </ul>
+                <span class="card-link">See all {{ category.name }} conditions</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<app-cta-band
+    title="Not sure where to start?"
+    text="Book a visit with a primary care provider. They can look at your symptoms and guide you to the right care.">
+</app-cta-band>

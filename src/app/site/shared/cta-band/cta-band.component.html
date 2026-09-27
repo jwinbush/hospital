@@ -1,0 +1,14 @@
+<section class="site-wrapper site-wrapper--sm">
+    <div class="site-container">
+        <div class="cta-band">
+            <div>
+                <h2 class="cta-band__title">{{ title }}</h2>
+                <p class="cta-band__text">{{ text }}</p>
+            </div>
+            <div class="cta-band__actions">
+                <a routerLink="/book-appointment" class="btn btn-light">Book an Appointment</a>
+                <a [href]="'tel:' + contact.phone" class="cta-band__phone">or call {{ contact.phone }}</a>
+            </div>
+        </div>
+    </div>
+</section>

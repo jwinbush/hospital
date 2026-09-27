@@ -1,0 +1,25 @@
+/* Filters in a sidebar on large screens, above the results on small ones */
+.directory {
+    display: grid;
+    align-items: start;
+    gap: var(--space-7);
+
+    @media (min-width: 64rem) {
+        grid-template-columns: 18rem 1fr;
+    }
+
+    &__filters {
+        gap: var(--space-5);
+
+        @media (min-width: 64rem) {
+            position: sticky;
+            top: 10rem; // stays below the sticky header while scrolling
+        }
+    }
+
+    &__count {
+        margin-bottom: var(--space-5);
+        font-weight: var(--fw-medium);
+        color: var(--color-text-muted);
+    }
+}

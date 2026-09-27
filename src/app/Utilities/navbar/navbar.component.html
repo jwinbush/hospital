@@ -1,73 +1,85 @@
-<div class="container {{light}}" id="container">
-    <nav class="navbar d-flex justify-content-between align-items-center navbar-expand-lg {{navbarcolour}} bg-light">
-        <div class="navbar-logo d-flex align-items-center">
-            <a class="navbar-brand grow" href="/home"><img src='../../../assets/images/serenity.png' width="50px"></a>
-            <p class="navbar-logo-text pt-4"><span>Serenity</span><br>Care Services</p>
-        </div>
+<header class="site-header">
 
-        <div id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li><a class="nav-link" href="/about">About Us</a></li>
-                <li><a class="nav-link" href="/our-services">Our Services</a></li>
-                <li><a class="nav-link" href="/careers">Careers</a></li>
-                <li><a class="nav-link" href="/faq">FAQ</a></li>
+    <!-- Top bar: phone, locations, patient portal -->
+    <div class="top-bar">
+        <div class="top-bar__inner">
+            <a [href]="'tel:' + contact.phone" class="top-bar__link">
+                <i class="fas fa-phone" aria-hidden="true"></i> {{ contact.phone }}
+            </a>
+            <a routerLink="/contact/locations" class="top-bar__link">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Locations
+            </a>
+            <a routerLink="/patient-portal" class="top-bar__link">
+                <i class="fas fa-user" aria-hidden="true"></i> Patient Portal
+            </a>
+        </div>
+    </div>
+
+    <!-- Main row: logo, navigation, book button -->
+    <div class="header-main">
+        <a routerLink="/" class="header-main__logo">
+            <img src="assets/images/serenity-health-logo.png" alt="Serenity Health">
+        </a>
+
+        <nav class="main-nav" aria-label="Main">
+            <ul class="main-nav__list">
+                <li *ngFor="let item of navigation" class="main-nav__item">
+                    <a [routerLink]="item.path" routerLinkActive="is-active" class="main-nav__link">
+                        {{ item.label }}
+                        <i *ngIf="item.children" class="fas fa-chevron-down main-nav__caret" aria-hidden="true"></i>
+                    </a>
+
+                    <ul *ngIf="item.children" class="main-nav__menu">
+                        <li *ngFor="let child of item.children">
+                            <a [routerLink]="child.path" class="main-nav__menu-link">{{ child.label }}</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-        </div>
+        </nav>
 
-        <div class="a-link">
-            <button class="nav-button">
-                Contact us
+        <div class="header-main__actions">
+            <a routerLink="/book-appointment" class="btn btn-primary header-main__book">Book an Appointment</a>
+
+            <button type="button" class="menu-toggle" (click)="toggleMenu()"
+                    [attr.aria-expanded]="menuOpen" aria-controls="mobile-menu"
+                    [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'">
+                <i class="fas" [class.fa-bars]="!menuOpen" [class.fa-times]="menuOpen" aria-hidden="true"></i>
             </button>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    </div>
 
-
-    </nav>
-    <div id="mobile-nav">
-        <ul class="navbar-collapse">
-            <li><a class="link" href="/about">About Us</a></li>
-            <li><a class="link" href="/our-services">Our Services</a></li>
-            <li><a class="link" href="/careers">Careers</a></li>
-            <li><a class="link" href="/faq">FAQ</a></li>
-            <li><a class="link contact-link">Contact Us</a></li>
-
-
-
+    <!-- Mobile menu: full screen, sections expand in place -->
+    <div id="mobile-menu" class="mobile-menu" [class.is-open]="menuOpen">
+        <ul class="mobile-menu__list">
+            <li *ngFor="let item of navigation" class="mobile-menu__item">
+                <ng-container *ngIf="item.children; else plainLink">
+                    <button type="button" class="mobile-menu__section"
+                            (click)="toggleSection(item.label)"
+                            [attr.aria-expanded]="openSection === item.label">
+                        {{ item.label }}
+                        <i class="fas" [class.fa-plus]="openSection !== item.label"
+                           [class.fa-minus]="openSection === item.label" aria-hidden="true"></i>
+                    </button>
+                    <ul class="mobile-menu__sublist" *ngIf="openSection === item.label">
+                        <li><a [routerLink]="item.path" class="mobile-menu__sublink">{{ item.label }} overview</a></li>
+                        <li *ngFor="let child of item.children">
+                            <a [routerLink]="child.path" class="mobile-menu__sublink">{{ child.label }}</a>
+                        </li>
+                    </ul>
+                </ng-container>
+                <ng-template #plainLink>
+                    <a [routerLink]="item.path" class="mobile-menu__section">{{ item.label }}</a>
+                </ng-template>
+            </li>
+            <li class="mobile-menu__item">
+                <a routerLink="/patient-portal" class="mobile-menu__section">Patient Portal</a>
+            </li>
         </ul>
 
-        <button class="navbar-toggler" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <img class="close-mobile-menu" src="../../../assets/images/close.png" width="24">
-    </div>
-
-    <div class="sidebar">
-        <div class="sidebar-content">
-            <img class="close-sidebar" src="../../../assets/images/close.png" width="24">
-            <h2>Get in touch</h2>
-            <div class="form-container">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="first-name" name="first-name" placeholder="First name *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="last-name" name="last-name" placeholder="Last name *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email address *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Phone number *" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="comments" name="comments" rows="4" placeholder="How can we assist you today? *" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Submit</button>
-                </form>
-            </div>
+        <div class="mobile-menu__actions">
+            <a routerLink="/book-appointment" class="btn btn-primary btn-block">Book an Appointment</a>
+            <a [href]="'tel:' + contact.phone" class="btn btn-tertiary btn-block">Call {{ contact.phone }}</a>
         </div>
     </div>
-    <div class="backdrop"></div>
-</div>
+</header>

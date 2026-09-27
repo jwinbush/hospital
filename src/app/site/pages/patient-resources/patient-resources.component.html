@@ -1,0 +1,21 @@
+<app-page-hero
+    eyebrow="Patient Resources"
+    title="Everything you need for your visit"
+    intro="Forms, billing help, health information and answers to common questions — all in one place.">
+    <a routerLink="/patient-portal" class="btn btn-primary">Go to Patient Portal</a>
+</app-page-hero>
+
+<section class="site-wrapper">
+    <div class="site-container">
+        <div class="grid grid-2">
+            <a *ngFor="let resource of resources" [routerLink]="resource.path" class="card">
+                <span class="card-icon"><i [class]="resource.icon" aria-hidden="true"></i></span>
+                <h2 class="card-title">{{ resource.title }}</h2>
+                <p class="card-text">{{ resource.text }}</p>
+                <span class="card-link">Open {{ resource.title }}</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<app-cta-band></app-cta-band>

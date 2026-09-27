@@ -5,8 +5,8 @@
 }
 
 .h-dashboard {
-    padding-top: 0vh;
-    min-height: 100vh;
+    padding-top: 0;
+    min-height: 56.25rem;
 }
 
 .wrapper {
@@ -34,7 +34,7 @@
 }
 
 .container {
-    margin-top: 1vh;
+    margin-top: 0.5rem;
 }
 
 .chat-btn {
@@ -58,7 +58,7 @@
     flex-basis: 60%;
     display: flex;
     align-items: center;
-    margin: 15vh 0;
+    margin: 8.5rem 0;
 }
 
 .right-side img.controller {
@@ -67,7 +67,7 @@
 
 .card {
     padding: 16px;
-    margin-bottom: 15vh;
+    margin-bottom: 8.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgb(136 136 136 / 20%), 0 6px 20px 0 rgb(138 138 138 / 19%);
 }
@@ -268,6 +268,6 @@ button.prev-button {
     }
     .prog-bar {
         margin-top: -14%;
-        margin-bottom: 10vh;
+        margin-bottom: 5.5rem;
     }
 }

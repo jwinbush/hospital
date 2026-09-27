@@ -1,0 +1,26 @@
+/* Row of big numbers: "3 Clinic locations", … */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--space-5);
+    margin: var(--space-8) 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: grid;
+        gap: var(--space-1);
+        padding-top: var(--space-4);
+        border-top: 2px solid var(--color-teal);
+    }
+
+    &__value {
+        font-size: var(--fs-3xl);
+        font-weight: var(--fw-bold);
+        color: var(--color-teal-dark);
+    }
+
+    &__label {
+        color: var(--color-text-muted);
+    }
+}

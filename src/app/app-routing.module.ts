@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SITE_ROUTES } from './site/site.routes';
 import { SignupComponent } from './Hospitals/signup/signup.component';
 import { LoginComponent } from './Hospitals/login/login.component';
 import { DashboardComponent } from './Hospitals/dashboard/dashboard.component';
-import { HomeComponent } from './Home/home/home.component';
-import { AboutComponent } from './About/about.component';
-import { FaqComponent } from './Faq/faq.component';
-import { CareersComponent } from './Careers/careers.component';
 import { SignupPatientComponent } from './Patients/signup-patient/signup-patient.component';
 import { LoginPatientComponent } from './Patients/login-patient/login-patient.component';
 import { DashboardPatientComponent } from './Patients/dashboard-patient/dashboard-patient.component';
@@ -20,35 +17,39 @@ import { ProfilePatientComponent } from './Patients/profile-patient/profile-pati
 import { ProfileHospitalComponent } from './Hospitals/profile-hospital/profile-hospital.component';
 import { ErrorPageComponent } from './Utilities/error-page/error-page.component';
 
+/** Patient and hospital portal (the logged-in app) */
+const PORTAL_ROUTES: Routes = [
+    { path: 'hospital-login', component: LoginComponent },
+    { path: 'hospital-signup', component: SignupComponent },
+    { path: 'hospital-dashboard/:id', component: DashboardComponent },
+    { path: 'patient-login', component: LoginPatientComponent },
+    { path: 'patient-signup', component: SignupPatientComponent },
+    { path: 'patient-dashboard/:id', component: DashboardPatientComponent },
+    { path: 'h-forget-pas', component: ForgetPasComponent },
+    { path: 'p-forget-pas', component: ForgetPasPatientComponent },
+    { path: 'self-analysis', component: SelfAnalysisComponent },
+    { path: 'resources', component: ResourcesComponent },
+    { path: 'our-products', component: OurProductsComponent },
+    { path: 'p-profile/:id', component: ProfilePatientComponent },
+    { path: 'h-profile/:id', component: ProfileHospitalComponent },
+    { path: 'chat', component: ChatComponent },
+];
+
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'hospital-login', component: LoginComponent },
-  { path: 'hospital-signup', component: SignupComponent },
-  { path: 'hospital-dashboard/:id', component: DashboardComponent},
-  { path: 'patient-login', component: LoginPatientComponent },
-  { path: 'patient-signup', component: SignupPatientComponent },
-  { path: 'patient-dashboard/:id', component: DashboardPatientComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'faq', component: FaqComponent },
-  { path: 'careers', component: CareersComponent },
-  { path: 'h-forget-pas', component: ForgetPasComponent },
-  { path: 'p-forget-pas', component: ForgetPasPatientComponent },
-  { path: 'self-analysis', component: SelfAnalysisComponent },
-  { path: 'resources', component: ResourcesComponent },
-  { path: 'our-products', component: OurProductsComponent },
-  { path: 'p-profile/:id', component: ProfilePatientComponent },
-  { path: 'h-profile/:id', component: ProfileHospitalComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: 'error-page', component: ErrorPageComponent }
+    ...PORTAL_ROUTES,
+    ...SITE_ROUTES,
+    { path: '404', component: ErrorPageComponent, title: 'Page not found | Serenity Health' },
+    { path: 'error-page', redirectTo: '404' },
+    { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    useHash: true,
-    scrollPositionRestoration: 'enabled', // Add options right here
-  })],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {
+            scrollPositionRestoration: 'enabled', // new pages start at the top
+            anchorScrolling: 'enabled',
+        }),
+    ],
+    exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}

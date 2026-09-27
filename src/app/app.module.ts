@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { SiteModule } from './site/site.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './Hospitals/signup/signup.component';
 import { LoginComponent } from './Hospitals/login/login.component';
 import { DashboardComponent } from './Hospitals/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './Utilities/navbar/navbar.component';
-import { FooterComponent } from './Utilities/footer/footer.component';
-import { HomeComponent } from './Home/home/home.component';
-import { AboutComponent } from './About/about.component';
-import { FaqComponent } from './Faq/faq.component';
-import { ServicesComponent } from './Our-Services/services.component';
-import { CareersComponent } from './Careers/careers.component';
 import { SignupPatientComponent } from './Patients/signup-patient/signup-patient.component';
 import { LoginPatientComponent } from './Patients/login-patient/login-patient.component';
 import { DashboardPatientComponent } from './Patients/dashboard-patient/dashboard-patient.component';
@@ -33,7 +27,6 @@ import { FormsModule } from '@angular/forms';
 import { ResourcesComponent } from './common-services/resources/resources.component';
 import { OurProductsComponent } from './common-services/our-products/our-products.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import { RouterModule, Routes } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SharingService } from './services/sharing.service';
 import { ChatComponent } from './chat/chat/chat.component';
@@ -50,19 +43,6 @@ import { ErrorPageComponent } from './Utilities/error-page/error-page.component'
 
 
 
-const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'faq', component: FaqComponent },
-  { path: 'our-services', component: ServicesComponent },
-  { path: 'careers', component: CareersComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '404', component: ErrorPageComponent },
-  { path: '**', redirectTo: '/404' }
-];
 
 @NgModule({
   declarations: [
@@ -70,13 +50,6 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    AboutComponent,
-    FaqComponent,
-    ServicesComponent,
-    CareersComponent,
     SignupPatientComponent,
     LoginPatientComponent,
     DashboardPatientComponent,
@@ -94,6 +67,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SiteModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
@@ -110,13 +84,11 @@ const routes: Routes = [
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
-    RouterModule.forRoot(routes)
+    MatListModule
  
     
 
   ],
-  exports: [RouterModule],
 
   providers: [SharingService],
   bootstrap: [AppComponent]

@@ -1,0 +1,36 @@
+/* ==========================================================================
+   12. VENDOR OVERRIDES
+   --------------------------------------------------------------------------
+   Adjustments to styles that come from libraries or the browser.
+   ========================================================================== */
+
+
+/* ---- Angular Material spinner ---- */
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: rgb(26, 26, 26) !important;
+}
+
+
+/* ---- Angular Material form fields in dark mode ---- */
+
+.dark {
+    .mat-form-field-label {
+        color: var(--color-white) !important;
+    }
+
+    .mat-form-field-underline {
+        background-color: var(--color-white) !important;
+    }
+}
+
+
+/* ---- Stop Chrome painting a yellow background on autofilled inputs ---- */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}

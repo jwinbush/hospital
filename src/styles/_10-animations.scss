@@ -1,0 +1,55 @@
+/* ==========================================================================
+   10. ANIMATIONS
+   ========================================================================== */
+
+/* Slight grow on hover */
+.grow2 {
+    transition: all 0.01s ease-in-out;
+    &:hover { transform: scale(1.03); }
+}
+
+/* Larger grow on hover */
+.grow {
+    transition: all 0.2s ease-in-out !important;
+    &:hover { transform: scale(1.1) !important; }
+}
+
+/* Full spin on hover */
+.rotate {
+    transition: transform 0.5s ease-in-out;
+    &:hover { transform: rotate(360deg); }
+}
+
+/* Gentle up-and-down float */
+.object {
+    position: absolute;
+    animation: MoveUpDown 3s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% { bottom: 0; }
+    50%      { bottom: 10px; }
+}
+
+/* Underline that grows from the center on hover */
+.middle {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-white);
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+}

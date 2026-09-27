@@ -1,40 +1,42 @@
-<footer id="footer">
-    <div class="footer-wrapper">
-        <div class="footer-logo">
-            <a class="footer-brand " routerLink="/home"><img src='../../../assets/images/serenity.png' width="50px"></a>
-            <p class="footer-logo-text"><span>Serenity</span><br>Care Services</p>
-        </div>
-        <div class="footer-company">
-            <ul class="footer-links">
-                <li class="link-header">Our Company</li>
-                <li><a class="link" routerLink="/about-us" routerLinkActive="itemActive">About Us</a></li>
-                <li> <a class="link" routerLink="/services" routerLinkActive="itemActive">Services</a></li>
-                <li> <a class="link" routerLink="/careers" routerLinkActive="itemActive">Careers</a></li>
-                <li><a class="link" routerLink="/faq" routerLinkActive="itemActive">FAQ</a></li>
+<footer class="site-footer">
+    <div class="site-footer__main">
+
+        <!-- Brand and contact -->
+        <div class="site-footer__brand">
+            <a routerLink="/" class="site-footer__logo">
+                <img src="assets/images/serenity-health-logo.png" alt="Serenity Health">
+            </a>
+            <p class="site-footer__tagline">Compassionate, coordinated care for every stage of life.</p>
+            <ul class="site-footer__contact">
+                <li><i class="fas fa-phone" aria-hidden="true"></i> <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a></li>
+                <li><i class="fas fa-envelope" aria-hidden="true"></i> <a [href]="'mailto:' + contact.email">{{ contact.email }}</a></li>
             </ul>
+            <a routerLink="/book-appointment" class="btn btn-light">Book an Appointment</a>
         </div>
-        <div class="footer-solutions">
-            <ul class="footer-links">
-                <li class="link-header">Patient Hub</li>
-                <li><a class="link" routerLink="/about-us" routerLinkActive="itemActive">Patient Portal</a></li>
-                <li> <a class="link" routerLink="/services" routerLinkActive="itemActive">Book Labs and Screenings</a></li>
-                <li> <a class="link" routerLink="/careers" routerLinkActive="itemActive">Find a Location</a></li>
-                <li><a class="link" routerLink="/faq" routerLinkActive="itemActive">FAQ</a></li>
-            </ul>
-        </div>
-        <div class="footer-social">
-            <p class="link-header">Follow us</p>
-            <div class="icons">
-                <img src="../../../assets/images/instagram.png" alt="">
-                <img src="../../../assets/images/linkedin.png" alt="">
+
+        <!-- Sitemap columns -->
+        <nav class="site-footer__nav" aria-label="Footer">
+            <div *ngFor="let section of columns" class="site-footer__column">
+                <h2 class="site-footer__heading">
+                    <a [routerLink]="section.path">{{ section.label }}</a>
+                </h2>
+                <ul class="site-footer__links">
+                    <li *ngFor="let link of section.children">
+                        <a [routerLink]="link.path">{{ link.label }}</a>
+                    </li>
+                </ul>
             </div>
-
-        </div>
-    </div>
-    <div class="privacy-policy">
-        <p>Privacy Policy & Cookie Policy</p>
-        <p>Terms & Conditions</p>
-        <p>2024. Serenity Care Services</p>
+        </nav>
     </div>
 
+    <!-- Bottom bar -->
+    <div class="site-footer__bottom">
+        <p>© {{ year }} Serenity Health. All rights reserved.</p>
+        <ul class="site-footer__legal">
+            <li><a routerLink="/find-a-doctor">Find a Doctor</a></li>
+            <li><a routerLink="/patient-portal">Patient Portal</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+        </ul>
+    </div>
 </footer>

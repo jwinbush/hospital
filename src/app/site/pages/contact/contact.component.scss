@@ -1,0 +1,14 @@
+/* Form on the left, contact details on the right */
+.contact {
+    display: grid;
+    align-items: start;
+    gap: var(--space-8);
+
+    @media (min-width: 64rem) {
+        grid-template-columns: 1fr 22rem;
+    }
+
+    &__details {
+        gap: var(--space-5);
+    }
+}
